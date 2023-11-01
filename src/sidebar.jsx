@@ -18,7 +18,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import ApexChart from './chart';
+import Layout from './Layout';
+
 
 const drawerWidth = 240;
 
@@ -94,7 +95,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Financail Management System 
+            Financail Management System
           </Typography>
         </Toolbar>
       </AppBar>
@@ -118,7 +119,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-        {/* ['Inbox', 'Starred', 'Send email', 'Drafts'] */}
+          {/* ['Inbox', 'Starred', 'Send email', 'Drafts'] */}
           {['الحسابات العامة', 'نظام المخازن'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
@@ -131,7 +132,7 @@ export default function PersistentDrawerLeft() {
           ))}
         </List>
         <Divider />
-{/*        
+        {/*        
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding>
@@ -148,9 +149,7 @@ export default function PersistentDrawerLeft() {
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-        <ApexChart />
-     
-        
+        <Layout />
       </Main>
     </Box>
   );

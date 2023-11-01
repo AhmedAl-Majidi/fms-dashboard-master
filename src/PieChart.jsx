@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-function ApexChart() {
+function PieChart() {
   const series = [60000, 40000, 20000];
   const options = {
     chart: {
@@ -38,4 +38,4 @@ function ApexChart() {
   );
 }
 
-export default ApexChart;
+export default PieChart;
