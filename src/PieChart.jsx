@@ -5,10 +5,10 @@ function PieChart() {
   const series = [60000, 40000, 20000];
   const options = {
     chart: {
-      width: 480,
+      // width: 480,
       type: 'pie',
     },
-    labels: ['الإيرادات ', ' المصروفات', 'صافي الربـــح'],
+    labels: ['الإيرادات ', 'المصروفات', 'صافي الربـــح'],
     responsive: [
       {
         breakpoint: 480,
