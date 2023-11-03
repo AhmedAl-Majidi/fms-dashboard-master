@@ -1,11 +1,35 @@
-// import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
+import axios from "axios";
 
 function PieChart() {
-  const series = [60000, 40000, 20000];
+  const [data, setData] = useState(null);
+  const [series, setSeries] = useState([]);
+
+  useEffect(() => {
+    const url = "https://localhost:7237/api/ExpensesAndRevenues";
+
+    axios
+      .get(url)
+      .then((response) => {
+        setData(response.data);
+
+        // Check if data is an array and has at least one element
+        if (Array.isArray(response.data) && response.data.length > 0) {
+          setSeries([
+            response.data[0].credit,
+            response.data[0].debit,
+            response.data[0].credit - response.data[0].debit,
+          ]);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []); // Empty dependency array means the effect runs once after the initial render
+
   const options = {
     chart: {
-      // width: 480,
       type: "pie",
     },
     labels: ["الإيـــــــرادات ", "المصروفـــات", "صافي الربـــح"],
@@ -13,9 +37,6 @@ function PieChart() {
       {
         breakpoint: 480,
         options: {
-          // chart: {
-          //   width: 200,
-          // },
           legend: {
             position: "bottom",
           },
@@ -30,12 +51,7 @@ function PieChart() {
         <div className="card-body">
           <h4 className="card-title">حركة المصروفات والإيرادات</h4>
           <div id="chart">
-            <ReactApexChart
-              options={options}
-              series={series}
-              type="pie"
-              // width={480}
-            />
+            <ReactApexChart options={options} series={series} type="pie" />
           </div>
         </div>
       </div>
