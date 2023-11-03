@@ -3,9 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import axios from "axios";
 
 const LineChart = () => {
-  let assetsAllData = [];
-  let liabilitiesAllData = [];
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
   const [assetsData, setAssetsData] = useState([]);
   const [liabilitiesData, setLiabilitiesData] = useState([]);
 
@@ -15,20 +13,25 @@ const LineChart = () => {
     axios
       .get(url)
       .then((response) => {
-        setData(response.data);
-        data.map((i) => {
+        // setData(response.data);
+
+        const assetsData = [];
+        const liabilitiesData = [];
+
+        response.data.forEach((i) => {
           if (i.year === 2023 && i.month) {
             if (i.type === 1) {
-              assetsAllData.push({ x: i.month, y: Math.abs(i.amount) });
+              assetsData.push({ x: i.month, y: Math.abs(i.amount) });
             }
 
             if (i.type === 2) {
-              liabilitiesAllData.push({ x: i.month, y: Math.abs(i.amount) });
+              liabilitiesData.push({ x: i.month, y: Math.abs(i.amount) });
             }
           }
         });
-        setAssetsData(assetsAllData);
-        setLiabilitiesData(liabilitiesAllData);
+
+        setAssetsData(assetsData);
+        setLiabilitiesData(liabilitiesData);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
