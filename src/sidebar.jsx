@@ -19,6 +19,13 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Layout from "./Layout";
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import Collapse from '@mui/material/Collapse';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import PropTypes from 'prop-types';
+import TabPanel from "./tabpanel";
 
 const drawerWidth = 240;
 
@@ -70,6 +77,8 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [collaps, setcollaps] = React.useState(true);
+  const [value, setValue] = React.useState(0);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -79,6 +88,13 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
+  const handleClick = () => {
+    setcollaps(!collaps);
+  };
+  const handleChange = (event,newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -86,7 +102,7 @@ export default function PersistentDrawerLeft() {
         <Toolbar>
           <IconButton
             color="inherit"
-            aria-label="open drawer"
+            aria-label="open drawerf"
             onClick={handleDrawerOpen}
             edge="start"
             sx={{ ml: 2, ...(open && { display: "none" }) }}
@@ -94,7 +110,8 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Financail Management System
+          النظام المـــالي
+            {/* {value} */}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -122,23 +139,33 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {/* ['Inbox', 'Starred', 'Send email', 'Drafts'] */}
-          {["الحسابات العامة", "نظام المخازن"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+        <ListItemButton onClick={handleClick} >
+        <ListItemIcon>
+          <InboxIcon />
+        </ListItemIcon>
+        <ListItemText sx={{display:"flex"}} primary="النظام المالي" />
+        {collaps ? <ExpandLess /> : <ExpandMore />}
+      </ListItemButton>
+      <Collapse in={!collaps} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <Tabs
+        orientation="vertical"
+        value={value}
+        onChange={handleChange}
+        sx={{ borderRight: 2, borderColor: 'divider' }}>
+          {[{'id':1,'name':"الحسابات العامة"},{'id':2,'name': "نظام المخازن"}].map((text, index) => (   
+           <Tab label={text.name} key={text.id} />   
+       ))}
+      </Tabs>
+        </List>
+      </Collapse>
         </List>
         <Divider />
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-        <Layout />
+        {/* <Layout /> */}
+        <TabPanel value={value} index={value}/>
       </Main>
     </Box>
   );

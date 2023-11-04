@@ -1,14 +1,14 @@
 // import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-function PieChart() {
+function PieChart(props) {
   const series = [60000, 40000, 20000];
   const options = {
     chart: {
       // width: 480,
       type: "pie",
     },
-    labels: ["الإيـــــــرادات ", "المصروفـــات", "صافي الربـــح"],
+    labels: ["  الوارد  " ,"  المنصرف  " ," الرصيد الحالي  " ],
     responsive: [
       {
         breakpoint: 480,
@@ -23,11 +23,12 @@ function PieChart() {
       },
     ],
   };
+
       return (
         <div>
           <div className="card">
             <div className="card-body">
-                <h4 className="card-title">حركة المصروفات والإيرادات</h4>
+                <h4 className="card-title">حركة  {props.name}  </h4>
               <div id="chart">
                 <ReactApexChart
                   options={options}
@@ -40,7 +41,7 @@ function PieChart() {
           </div>
         </div>
       );
-    
+  
 }
 
 export default PieChart;
