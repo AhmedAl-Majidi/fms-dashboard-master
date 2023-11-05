@@ -17,6 +17,7 @@
     "@mui/material": "^5.14.16",
     "@mui/styled-engine-sc": "^6.0.0-alpha.3",
     "@mui/x-charts": "^6.0.0-alpha.17",
+    "@preact/signals": "^1.2.1",
     "apexcharts": "^3.44.0",
     "axios": "^1.6.0",
     "force": "^0.0.3",

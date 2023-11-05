@@ -7,7 +7,7 @@ function PieChart() {
   const [series, setSeries] = useState([]);
 
   useEffect(() => {
-    const url = "https://localhost:7237/api/ExpensesAndRevenues";
+    const url = "https://localhost:7222/api/ExpensesAndRevenues";
 
     axios
       .get(url)

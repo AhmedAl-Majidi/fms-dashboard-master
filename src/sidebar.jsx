@@ -94,7 +94,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Financail Management System
+            النظــام المالـــي
           </Typography>
         </Toolbar>
       </AppBar>
