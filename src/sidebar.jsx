@@ -153,7 +153,7 @@ export default function PersistentDrawerLeft() {
         value={value}
         onChange={handleChange}
         sx={{ borderRight: 2, borderColor: 'divider' }}>
-          {[{'id':1,'name':"الحسابات العامة"},{'id':2,'name': "نظام المخازن"}].map((text, index) => (   
+          {[{'id':1,'name':"الحسابات العامة"},{'id':2,'name': "نظام المخازن"},{'id':3,'name': "نظام الاصول"}].map((text, index) => (   
            <Tab label={text.name} key={text.id} />   
        ))}
       </Tabs>

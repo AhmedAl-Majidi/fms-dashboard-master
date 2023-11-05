@@ -9,7 +9,6 @@ export default function TabPanel(props) {
      return <Layout/>  
    }
     else{
-      // console.log(value)
       return(<Stores/>)
     }
   }

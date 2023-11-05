@@ -19,7 +19,7 @@ export default function Layout(account) {
             <Grid container spacing={2}>
                 <Grid item xs={12} md={4} sx={{ color: "red" }}>
                     <Item>
-                        <PieChart system={account.acc} />
+                        <PieChart  />
                     </Item>
                 </Grid>
                 <Grid item xs={12} md={4}>
