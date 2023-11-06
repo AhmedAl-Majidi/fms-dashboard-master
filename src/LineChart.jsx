@@ -66,6 +66,7 @@ const LineChart = () => {
         },
       ]}
       type="line"
+      // width="500"
     />
   );
 };

@@ -4,8 +4,11 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import PieChart from "./PieChart";
 import LineChart from "./LineChart";
-import RefreshBtn from "./RefreshBtn";
-import Counter from "./Counter";
+import YearMonthCalendar from "./YearMonthCalendar";
+import MonthPicker from "@mui/lab/MonthPicker";
+// import MonthPicker from "@mui/lab/DateRangePicker/MonthPicker";
+// import { MonthPickerComponent } from "@mui/lab";
+// import { MonthPickerComponent } from "@mui/lab";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -13,9 +16,6 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
-  // display: "flex",
-  // alignItems: "center",
-  // justifyContent: "center",
 }));
 
 export default function Layout() {
@@ -31,28 +31,15 @@ export default function Layout() {
         }}
       >
         <Grid item xs={12} md={4}>
-          <Item>
+          <Box height boxShadow={4} borderRadius={8} p={2}>
             <PieChart />
-          </Item>
+          </Box>
         </Grid>
         <Grid item xs={12} md={4}>
-          <Item>
+          <Box height boxShadow={4} borderRadius={8} p={2}>
             <LineChart />
-          </Item>
+          </Box>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <Item></Item>
-        </Grid>
-        {/*<Grid item xs={12} md={4}>
-          <Item>
-            <RefreshBtn />
-          </Item>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Item>
-            <Counter />
-          </Item>
-      </Grid>*/}
       </Grid>
     </Box>
   );
