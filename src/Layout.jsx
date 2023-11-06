@@ -4,11 +4,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import PieChart from "./PieChart";
 import LineChart from "./LineChart";
-import YearMonthCalendar from "./YearMonthCalendar";
-import MonthPicker from "@mui/lab/MonthPicker";
-// import MonthPicker from "@mui/lab/DateRangePicker/MonthPicker";
-// import { MonthPickerComponent } from "@mui/lab";
-// import { MonthPickerComponent } from "@mui/lab";
+import DatePickerViews from "./DatePickerViews";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -38,6 +34,11 @@ export default function Layout() {
         <Grid item xs={12} md={4}>
           <Box height boxShadow={4} borderRadius={8} p={2}>
             <LineChart />
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <Box height boxShadow={4} borderRadius={8} p={2}>
+            <DatePickerViews />
           </Box>
         </Grid>
       </Grid>
