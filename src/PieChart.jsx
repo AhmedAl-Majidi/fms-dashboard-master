@@ -33,7 +33,6 @@ function PieChart() {
                   options={options}
                   series={series}
                   type="pie"
-                  // width={480}
                 />
               </div>
             </div>
@@ -43,4 +42,45 @@ function PieChart() {
     
 }
 
-export default PieChart;
+function PieChartBoxes() {
+  const series = [60000, 40000, 20000];
+  const options = {
+    chart: {
+      // width: 480,
+      type: "pie",
+    },
+    labels: [" مــدين ", " دائــن ", " الــرصيد النهائي "],
+    responsive: [
+      {
+        breakpoint: 480,
+        options: {
+          // chart: {
+          //   width: 200,
+          // },
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    ],
+  };
+      return (
+        <div>
+          <div className="card">
+            <div className="card-body">
+                <h4 className="card-title">حــركة الصــناديق</h4>
+              <div id="chart">
+                <ReactApexChart
+                  options={options}
+                  series={series}
+                  type="pie"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    
+}
+
+export {PieChart,PieChartBoxes};
