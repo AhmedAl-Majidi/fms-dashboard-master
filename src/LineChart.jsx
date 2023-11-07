@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import axios from "axios";
+import { fromMonth, toMonth, z } from "./Period";
+import { period } from "./Period";
+// import { log } from "console";
+// import { count } from "./Period";
 
 const LineChart = () => {
   // const [data, setData] = useState(null);
   const [assetsData, setAssetsData] = useState([]);
   const [liabilitiesData, setLiabilitiesData] = useState([]);
-  // const [count, setCount] = useState(0);
 
   useEffect(() => {
     const url = "https://localhost:7222/api/BalanceSheet";
@@ -14,8 +17,6 @@ const LineChart = () => {
     axios
       .get(url)
       .then((response) => {
-        // setData(response.data);
-
         const assetsData = [];
         const liabilitiesData = [];
 
@@ -23,7 +24,10 @@ const LineChart = () => {
           if (i.year === 2023 && i.month) {
             // assets
             if (i.type === 1) {
-              assetsData.push({ x: i.month, y: Math.abs(i.amount) });
+              for (let per = fromMonth; per <= toMonth; per++) {
+                // assetsData.push({ x: i.month, y: Math.abs(i.amount) });
+                assetsData.push({ x: per, y: Math.abs(i.amount) });
+              }
             }
 
             // liabilities
@@ -35,14 +39,16 @@ const LineChart = () => {
 
         setAssetsData(assetsData);
         setLiabilitiesData(liabilitiesData);
+        // console.log("ef");
+        // // console.log(assetsData);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, [z.value]);
 
-  // Configuration options for the chart
   const chartOptions = {
+    // onclick: increment(),
     chart: {
       id: "basic-line",
     },
@@ -66,6 +72,7 @@ const LineChart = () => {
         },
       ]}
       type="line"
+
       // width="500"
     />
   );

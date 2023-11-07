@@ -4,7 +4,11 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import PieChart from "./PieChart";
 import LineChart from "./LineChart";
-import DatePickerViews from "./DatePickerViews";
+import FromMonthYear from "./FromMonthYear";
+import ToMonthYear from "./ToMonthYear";
+// import { fromMonth, fromYear } from "./Period";
+import Refresh from "./Refresh";
+import YearPicker from "./YearPicker";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -37,8 +41,11 @@ export default function Layout() {
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
-          <Box height boxShadow={4} borderRadius={8} p={2}>
-            <DatePickerViews />
+          <Box height>
+            <YearPicker />
+            <FromMonthYear />
+            <ToMonthYear />
+            <Refresh />
           </Box>
         </Grid>
       </Grid>
