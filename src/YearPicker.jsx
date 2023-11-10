@@ -8,7 +8,8 @@ import { Year } from "./Period";
 export default function YearPicker() {
   const handleChange = (newDate) => {
     const dateObject = new Date(newDate);
-    Year.value = dateObject.getFullYear();
+
+    console.log((Year.value = dateObject.getFullYear()));
   };
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

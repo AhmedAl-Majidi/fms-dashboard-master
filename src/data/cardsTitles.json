@@ -1,0 +1,36 @@
+{
+  "expenses": {
+    "id": 3,
+    "name": "المصروفات",
+    "balance": "50,000",
+    "icon": null
+  },
+  "revenues": {
+    "id": 4,
+    "name": "الايرادات",
+    "balance": "70,000",
+    "icon": null
+  },
+  "profit": {
+    "id": null,
+    "name": "صافي الأرباح",
+    "balance": "20,000",
+    "icon": null
+  },
+  "cashIn": {
+    "id": null,
+    "name": "النقدية",
+    "balance": "185,000",
+    "icon": null,
+    "details": {
+      "boxes": {
+        "name": "الصندوق",
+        "balance": "100,000"
+      },
+      "banks": {
+        "name": "البنك",
+        "balance": "85,000"
+      }
+    }
+  }
+}
