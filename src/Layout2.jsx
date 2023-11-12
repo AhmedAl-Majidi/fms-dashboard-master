@@ -28,13 +28,15 @@ import ChartMonth from "./ChartMonth";
 import { Year } from "./Period";
 import { PieChart } from "./PieChart";
 import { data1 } from "./data/ApiData";
+import { Divider } from "@mui/material";
+import GlCard from "./GlCard";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
+  //   ...theme.typography.body2,
+  //   padding: theme.spacing(1),
+  //   textAlign: "center",
+  //   color: theme.palette.text.secondary,
 }));
 
 export default function Layout() {
@@ -63,36 +65,34 @@ export default function Layout() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid
         container
-        spacing={2}
+        // spacing={2}
         sx={{
           flexGrow: 1,
           display: "flex",
           justifyContent: "center",
+          textAlign: "center",
+          alignItems: "center",
         }}
       >
-        {/*<Grid item xs={12} md={4}>
-          <Box height boxShadow={4} borderRadius={8} p={2}>
-            <PieChart />
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Box height boxShadow={4} borderRadius={8} p={2}>
-            <LineChart />
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Box height>
-            <YearPicker />
-            <FromMonthYear />
-            <ToMonthYear />
-            <Refresh />
-          </Box>
-      </Grid>*/}
-        <Grid item xs={8} md={3}>
+        {/*------------------------------------Year Picker------------------------------------ */}
+        <Grid item xs={12} md={2}>
           <Box>
-            <BasicCard
+            <YearPicker />
+          </Box>
+        </Grid>
+      </Grid>
+      {/*==================================Cards=========================================*/}
+      <Grid
+        container
+        // spacing={2}
+        mt={1}
+      >
+        {/*---------------------------------------Revenues-------------------------------------*/}
+        <Grid item xs={12} md={3}>
+          <Box>
+            {" "}
+            <GlCard
               title={cardsTitles.revenues.name}
-              // icon={<CallReceivedIcon sx={{ color: "#77DD77 " }} />}
               icon={
                 <FontAwesomeIcon
                   icon={faMoneyBillAlt}
@@ -100,16 +100,15 @@ export default function Layout() {
                   size="2x"
                 />
               }
-              // balance={cardsTitles.cashIn.balance}
               balance={sumArrays(getDataByEirad(data, Year.value))}
             />
           </Box>
         </Grid>
-        <Grid item xs={8} md={3}>
+        {/*----------------------------------Expense------------------------------------------*/}
+        <Grid item xs={12} md={3}>
           <Box>
-            <BasicCard
+            <GlCard
               title={cardsTitles.expenses.name}
-              // icon={<CallMadeIcon sx={{ color: "#FF6961" }} />}
               icon={
                 <FontAwesomeIcon
                   icon={faReceipt}
@@ -117,16 +116,15 @@ export default function Layout() {
                   size="2x"
                 />
               }
-              // balance={cardsTitles.expenses.balance}
               balance={sumArrays(getDataByMasrof(data, Year.value))}
             />
           </Box>
         </Grid>
-        <Grid item xs={8} md={3}>
+        {/*-----------------------------------Profit-----------------------------------------*/}
+        <Grid item xs={12} md={3}>
           <Box>
-            <BasicCard
+            <GlCard
               title={cardsTitles.profit.name}
-              // icon={<DoneIcon sx={{ color: "#FFD700" }} />}
               icon={
                 <FontAwesomeIcon
                   icon={faChartLine}
@@ -134,7 +132,6 @@ export default function Layout() {
                   size="2x"
                 />
               }
-              // balance={cardsTitles.profit.balance}
               balance={
                 sumArrays(getDataByEirad(data, Year.value)) -
                 sumArrays(getDataByMasrof(data, Year.value))
@@ -142,11 +139,11 @@ export default function Layout() {
             />
           </Box>
         </Grid>
-        <Grid item xs={8} md={3}>
+        {/*----------------------------------Cash In------------------------------------------*/}
+        <Grid item xs={12} md={3}>
           <Box>
-            <BasicCard
+            <GlCard
               title={cardsTitles.cashIn.name}
-              // icon={<AttachMoneyIcon sx={{ color: "#87CEEB" }} />}
               icon={
                 <FontAwesomeIcon
                   icon={faSackDollar}
@@ -154,7 +151,6 @@ export default function Layout() {
                   size="2x"
                 />
               }
-              // balance={cardsTitles.cashIn.balance}
               balance={cardsTitles.cashIn.balance}
               boxesDtlName={cardsTitles.cashIn.details.boxes.name}
               boxesDtlBalance={cardsTitles.cashIn.details.boxes.balance}
@@ -163,39 +159,36 @@ export default function Layout() {
             />
           </Box>
         </Grid>
-        {/* */}
-        <Grid item xs={12} md={2}>
-          <Box p={2}>
-            <YearPicker />
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Box height boxShadow={4} borderRadius={8} p={2}>
+      </Grid>
+
+      {/* =================================Charts=======================================*/}
+      <Grid
+        container
+        // spacing={2}
+        mt={2}
+        // sx={{
+        //   //   flexGrow: 1,
+        //   display: "flex",
+        //   //   justifyContent: "center",
+        // }}
+        boxShadow={4}
+        borderRadius={8}
+        p={2}
+      >
+        {/*----------------------------------PieChart------------------------------------------*/}
+        <Grid height item xs={12} md={3}>
+          <Box height>
             <PieChart year={Year.value} />
           </Box>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Box height boxShadow={4} borderRadius={8} p={2}>
+        <Divider orientation="vertical" variant="middle" flexItem />
+        {/*---------------------------------ChartMonth-------------------------------------------*/}
+        <Grid item xs={12} md={8} mt={8}>
+          <Box>
             <ChartMonth year={Year.value} />
           </Box>
         </Grid>
       </Grid>
-      {/*------------- */}
-      {/*<Grid item xs={12} md={4}>
-        <Box p={2}>
-          <YearPicker />
-        </Box>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Box boxShadow={4} borderRadius={8} p={2}>
-          <ChartMonth year={Year.value} />
-        </Box>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Box boxShadow={4} borderRadius={8} p={2}>
-          <PieChart year={Year.value} />
-            </Box>*/}
-      {/*------------- */}
     </Box>
   );
 }

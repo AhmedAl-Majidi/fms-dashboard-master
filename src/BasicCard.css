@@ -2,7 +2,7 @@
   position: relative;
 } */
 
-.card:hover .title {
+/* .card:hover .title {
   visibility: visible;
 }
 
@@ -17,4 +17,9 @@
   text-align: center;
   transform: translate(-50%, -50%);
   visibility: hidden;
+} */
+/* --------- */
+
+.card {
+  color: rgb(233, 233, 233);
 }
