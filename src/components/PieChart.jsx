@@ -1,6 +1,7 @@
 // import React from "react";
 import ReactApexChart from "react-apexcharts";
-import { data1 } from "./data/ApiData";
+import { data1 } from "../data/ApiData";
+import "../assets/fonts/font.css";
 
 function PieChart(props) {
   const data = data1.value;
@@ -32,6 +33,7 @@ function PieChart(props) {
       type: "pie",
     },
     labels: ["الإيـــــــرادات ", "المصروفـــات", "صافي الربـــح"],
+
     responsive: [
       {
         breakpoint: 480,
@@ -39,6 +41,7 @@ function PieChart(props) {
           // chart: {
           //   width: 200,
           // },
+
           legend: {
             position: "bottom",
           },
@@ -87,6 +90,7 @@ function PieChartBoxes() {
       },
     ],
   };
+
   return (
     <div>
       <div className="card">

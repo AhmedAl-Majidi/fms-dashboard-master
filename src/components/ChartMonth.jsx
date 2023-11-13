@@ -1,6 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
-import { data1 } from "./data/ApiData";
+import { data1 } from "../data/ApiData";
 
 const ApexChart = (props) => {
   const data = data1.value;
@@ -59,7 +59,7 @@ const ApexChart = (props) => {
   const options = {
     series: allData,
     chart: {
-      height: 308,
+      height: 368,
       type: "bar",
       stacked: false,
     },
@@ -120,12 +120,16 @@ const ApexChart = (props) => {
   };
 
   return (
-    <Chart
-      options={options}
-      series={options.series}
-      type={options.chart.type}
-      height={options.chart.height}
-    />
+    <div className="card">
+      <div className="card-body">
+        <Chart
+          options={options}
+          series={options.series}
+          type={options.chart.type}
+          height={options.chart.height}
+        />
+      </div>
+    </div>
   );
 };
 
