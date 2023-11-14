@@ -65,7 +65,7 @@ export default function Layout() {
       {/*==================================Cards=========================================*/}
       <section className="row">
         {/*---------------------------------------Revenues-------------------------------------*/}
-        <div className="col-sm-12 col-md-3 ">
+        <div className="col-sm-12 col-md-6 col-lg-3">
           <GlCard
             title={cardsTitles.revenues.name}
             icon={
@@ -80,7 +80,7 @@ export default function Layout() {
         </div>
 
         {/*----------------------------------Expense------------------------------------------*/}
-        <div className="col-sm-12 col-md-3">
+        <div className="col-sm-12 col-md-6 col-lg-3">
           <GlCard
             title={cardsTitles.expenses.name}
             icon={
@@ -95,7 +95,7 @@ export default function Layout() {
         </div>
 
         {/*-----------------------------------Profit-----------------------------------------*/}
-        <div className="col-sm-12 col-md-3">
+        <div className="col-sm-12 col-md-6 col-lg-3">
           <GlCard
             title={cardsTitles.profit.name}
             icon={
@@ -113,7 +113,7 @@ export default function Layout() {
         </div>
 
         {/*----------------------------------Cash In------------------------------------------*/}
-        <div className="col-sm-12 col-md-3">
+        <div className="col-sm-12 col-md-6 col-lg-3">
           <GlCard
             title={cardsTitles.cashIn.name}
             icon={
@@ -137,12 +137,12 @@ export default function Layout() {
       <section className="row mt-3">
         {/*----------------------------------PieChart------------------------------------------*/}
 
-        <div className="col-sm-12 col-md-5 mb-4">
+        <div className="col-sm-12 col-lg-5 mb-4">
           <PieChart year={Year.value} />
         </div>
         {/*---------------------------------ChartMonth-------------------------------------------*/}
 
-        <div className="col-sm-12 col-md-7">
+        <div className="col-sm-12 col-lg-7">
           <ChartMonth year={Year.value} />
         </div>
       </section>
