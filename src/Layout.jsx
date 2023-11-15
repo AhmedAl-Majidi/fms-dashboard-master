@@ -29,6 +29,7 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
+// import { ReactComponent as RevenuesIcon } from "./assets/icons/RevenuesIcon.svg";
 
 export default function Layout() {
   // abood
@@ -71,6 +72,7 @@ export default function Layout() {
             icon={
               <FontAwesomeIcon
                 icon={faMoneyBillAlt}
+                // icon={<RevenuesIcon />}
                 style={{ color: "#77DD77" }}
                 size="2x"
               />
