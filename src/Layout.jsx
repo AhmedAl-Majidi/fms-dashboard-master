@@ -21,6 +21,14 @@ import { Year } from "./components/YearPicker";
 import { PieChart } from "./components/PieChart";
 import { data1 } from "./data/ApiData";
 import GlCard from "./components/GlCard";
+import DraggableDialog from "./components/DraggableDialog";
+// import { RevenuesIcon } from "../src/assets/icons/RevenuesIcon.svg"
+import Draggable from "react-draggable";
+import Globe from "./components/Globe";
+import "../src/App.css";
+import DataTable from "./components/DataTable";
+// import {DraggableDialog} from "../src/components/DraggableDialog";
+import { Grid } from "@mui/material";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -29,7 +37,6 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
-// import { ReactComponent as RevenuesIcon } from "./assets/icons/RevenuesIcon.svg";
 
 export default function Layout() {
   // abood
@@ -53,6 +60,25 @@ export default function Layout() {
   };
 
   // end abood
+
+  // Icon Colores
+  const cashInBgColor = {
+    backgroundColor: "rgb(204, 189, 165)",
+    height: "82px",
+  };
+  const profitsBgColor = {
+    backgroundColor: "rgb(255 245 193)",
+    height: "82px",
+  };
+  const revenuesBgColor = {
+    backgroundColor: "rgb(255 245 193)",
+    height: "82px",
+  };
+  const expenseBgColor = {
+    backgroundColor: "rgb(255 202 199)",
+    height: "82px",
+  };
+
   return (
     <div className="container">
       {/*------------------------------------Year Picker------------------------------------ */}
@@ -64,25 +90,19 @@ export default function Layout() {
       </section>
 
       {/*==================================Cards=========================================*/}
-      <section className="row">
-        {/*---------------------------------------Revenues-------------------------------------*/}
-        <div className="col-sm-12 col-md-6 col-lg-3">
+      {/*<section className="row">*/}
+      {/*---------------------------------------Revenues-------------------------------------*/}
+      {/*} <div className="col-sm-12 col-md-6 col-lg-3 h-2 overflow-auto">
           <GlCard
             title={cardsTitles.revenues.name}
-            icon={
-              <FontAwesomeIcon
-                icon={faMoneyBillAlt}
-                // icon={<RevenuesIcon />}
-                style={{ color: "#77DD77" }}
-                size="2x"
-              />
-            }
+            icon={<Globe />}
+            iconColor={revenuesBgColor}
             balance={sumArrays(getDataByEirad(data, Year.value))}
           />
-        </div>
+  </div>*/}
 
-        {/*----------------------------------Expense------------------------------------------*/}
-        <div className="col-sm-12 col-md-6 col-lg-3">
+      {/*----------------------------------Expense------------------------------------------*/}
+      {/*} <div className="col-sm-12 col-md-6 col-lg-3">
           <GlCard
             title={cardsTitles.expenses.name}
             icon={
@@ -92,12 +112,13 @@ export default function Layout() {
                 size="2x"
               />
             }
+            iconColor={expenseBgColor}
             balance={sumArrays(getDataByMasrof(data, Year.value))}
           />
-        </div>
-
-        {/*-----------------------------------Profit-----------------------------------------*/}
-        <div className="col-sm-12 col-md-6 col-lg-3">
+          </div>*/}
+      {/* <RevenuesIcon /> */}
+      {/*-----------------------------------Profit-----------------------------------------*/}
+      {/*<div className="col-sm-12 col-md-6 col-lg-3">
           <GlCard
             title={cardsTitles.profit.name}
             icon={
@@ -107,15 +128,16 @@ export default function Layout() {
                 size="2x"
               />
             }
+            iconColor={profitsBgColor}
             balance={
               sumArrays(getDataByEirad(data, Year.value)) -
               sumArrays(getDataByMasrof(data, Year.value))
             }
           />
-        </div>
+          </div>*/}
 
-        {/*----------------------------------Cash In------------------------------------------*/}
-        <div className="col-sm-12 col-md-6 col-lg-3">
+      {/*----------------------------------Cash In------------------------------------------*/}
+      {/*<div className="col-sm-12 col-md-6 col-lg-3">
           <GlCard
             title={cardsTitles.cashIn.name}
             icon={
@@ -125,15 +147,81 @@ export default function Layout() {
                 size="2x"
               />
             }
+            iconColor={cashInBgColor}
             balance={cardsTitles.cashIn.balance}
             boxesDtlName={cardsTitles.cashIn.details.boxes.name}
             boxesDtlBalance={cardsTitles.cashIn.details.boxes.balance}
             banksDtlName={cardsTitles.cashIn.details.banks.name}
             banksDtlBalance={cardsTitles.cashIn.details.banks.balance}
           />
-        </div>
-      </section>
-
+          </div>*/}
+      {/*} </section>/*}
+      {/*==================================Cards2=========================================*/}
+      <Grid
+        container
+        spacing={0}
+        // columns={{ xs: 4, sm: 8, md: 12 }}
+        justifyContent="space-around"
+      >
+        <section className="row mb-4">
+          {/*---------------------------------------Revenues-------------------------------------*/}
+          <DraggableDialog
+            icon={
+              <FontAwesomeIcon
+                icon={faReceipt}
+                style={{ color: "#FF6961" }}
+                size="4x"
+              />
+            }
+            iconColor={cashInBgColor}
+            title={cardsTitles.revenues.name}
+            balance={sumArrays(getDataByEirad(data, Year.value))}
+          />
+          {/*----------------------------------Expense------------------------------------------*/}
+          <DraggableDialog
+            icon={
+              <FontAwesomeIcon
+                icon={faReceipt}
+                style={{ color: "#FF6961" }}
+                size="4x"
+              />
+            }
+            iconColor={expenseBgColor}
+            title={cardsTitles.expenses.name}
+            balance={sumArrays(getDataByMasrof(data, Year.value))}
+          />
+          {/* <RevenuesIcon /> */}
+          {/*-----------------------------------Profit-----------------------------------------*/}
+          <DraggableDialog
+            icon={
+              <FontAwesomeIcon
+                icon={faChartLine}
+                style={{ color: "#FFD700" }}
+                size="4x"
+              />
+            }
+            iconColor={profitsBgColor}
+            title={cardsTitles.profit.name}
+            balance={
+              sumArrays(getDataByEirad(data, Year.value)) -
+              sumArrays(getDataByMasrof(data, Year.value))
+            }
+          />
+          {/*----------------------------------Cash In------------------------------------------*/}
+          <DraggableDialog
+            icon={
+              <FontAwesomeIcon
+                icon={faSackDollar}
+                style={{ color: "#704700" }}
+                size="4x"
+              />
+            }
+            iconColor={cashInBgColor}
+            title={cardsTitles.cashIn.name}
+            balance={sumArrays(getDataByEirad(data, Year.value))}
+          />
+        </section>
+      </Grid>
       {/* =================================Charts=======================================*/}
 
       <section className="row mt-3">

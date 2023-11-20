@@ -8,13 +8,13 @@
   "revenues": {
     "id": 4,
     "name": "الايرادات",
-    "balance": "70,000",
+    "balance": "70,00",
     "icon": null
   },
   "profit": {
     "id": null,
     "name": "صافي الأرباح",
-    "balance": "20,000",
+    "balance": "20,00",
     "icon": null
   },
   "cashIn": {
@@ -25,7 +25,7 @@
     "details": {
       "boxes": {
         "name": "الصندوق",
-        "balance": "100,000"
+        "balance": "100,00"
       },
       "banks": {
         "name": "البنك",

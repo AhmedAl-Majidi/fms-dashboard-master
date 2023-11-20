@@ -50,9 +50,9 @@ export default function GlCard(props) {
         overflow: "hidden",
       }}
     >
-      <div className="container  flex-shrink-0">
+      <div className="container">
         <CardContent sx={{ overflow: "hidden" }}>
-          <section className="row flex flex-row  flex-shrink-0">
+          <section className="row flex flex-row">
             <div className=" col-6  d-flex justify-content-center align-items-center ">
               <Typography
                 theme={theme2}
@@ -64,14 +64,16 @@ export default function GlCard(props) {
                 {props.balance} $
               </Typography>
             </div>
-            <div className=" col-6   ">
-              <div className="col">
+            <div className=" col-6">
+              <div className="col bg-warning rounded-circle">
                 {/* Icon */}
                 <Typography
                   variant="h5"
                   component="div"
                   align="center"
                   className="icon"
+                  // height={60}
+                  // width={100}
                 >
                   {props.icon}
                 </Typography>

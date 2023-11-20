@@ -50,7 +50,7 @@ function PieChart(props) {
     ],
   };
   return (
-    <div>
+    <div style={{ fontFamily: "cairo" }}>
       <div className="card">
         <div className="card-body">
           <h4 className="card-title">حركة المصروفات والإيرادات</h4>
