@@ -97,10 +97,10 @@ export default function DraggableDialog(props) {
               {/* </DialogContentText> */}
             </DialogContent>
             <DialogActions>
-              {/* <Button autoFocus onClick={handleClose}>
-                Cancel
+              <Button autoFocus onClick={handleClose}>
+                خروج
               </Button>
-              <Button onClick={handleClose}>Subscribe</Button> */}
+              {/* <Button onClick={handleClose}>Subscribe</Button> */}
             </DialogActions>
           </Dialog>
         </React.Fragment>
