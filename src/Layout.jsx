@@ -84,7 +84,7 @@ export default function Layout() {
       {/*------------------------------------Year Picker------------------------------------ */}
       <section className="row col mb-2">
         <div className="d-flex justify-content-center align-items-center">
-          <span className="mx-2">السنة</span>
+          {/* <span className="mx-2">السنة</span> */}
           <YearPicker />
         </div>
       </section>

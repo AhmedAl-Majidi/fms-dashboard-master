@@ -22,6 +22,7 @@ import { Year } from "./YearPicker";
 import { Height } from "@mui/icons-material";
 import "./component.css";
 import { Grid, Box } from "@mui/material";
+import { Transition } from '@material-ui/core/transitions';
 
 function PaperComponent(props) {
   return (
@@ -52,6 +53,7 @@ export default function DraggableDialog(props) {
   //     const expenseBgColor = {
   //         backgroundColor: "rgb(255 202 199)"
   //     };
+
   return (
     <Grid xs={12} sm={6} md={3} marginTop={1} item>
       <Box>
@@ -87,6 +89,7 @@ export default function DraggableDialog(props) {
             onClose={handleClose}
             PaperComponent={PaperComponent}
             aria-labelledby="draggable-dialog-title"
+            TransitionComponent={Transition}
           >
             <DialogTitle style={{ cursor: "move", textAlign: "center", fontFamily: "cairo" }} id="draggable-dialog-title">
               {props.dialogTitle} تفصيلي
@@ -97,7 +100,7 @@ export default function DraggableDialog(props) {
               {/* </DialogContentText> */}
             </DialogContent>
             <DialogActions>
-              <Button autoFocus onClick={handleClose}>
+              <Button autoFocus onClick={handleClose} style={{ fontFamily: "cairo" }}>
                 خروج
               </Button>
               {/* <Button onClick={handleClose}>Subscribe</Button> */}

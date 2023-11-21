@@ -44,13 +44,18 @@ function PieChart(props) {
 
           legend: {
             position: "bottom",
-          },
+          }
         },
       },
     ],
   };
+
+  // 
+  const reactApexChartStyle = {
+    fontFamily: 'cairo',
+  }
   return (
-    <div style={{ fontFamily: "cairo" }}>
+    <div style={{ fontFamily: "cairo" }} >
       <div className="card">
         <div className="card-body">
           <h4 className="card-title">حركة المصروفات والإيرادات</h4>
@@ -60,11 +65,12 @@ function PieChart(props) {
               series={series}
               type="pie"
               // width={480}
+              style={reactApexChartStyle}
             />
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
@@ -92,7 +98,7 @@ function PieChartBoxes() {
   };
 
   return (
-    <div>
+    <div style={reactApexChartStyle}>
       <div className="card">
         <div className="card-body">
           <h4 className="card-title">حــركة الصــناديق</h4>
@@ -101,7 +107,7 @@ function PieChartBoxes() {
               options={options}
               series={series}
               type="pie"
-              // width={480}
+            // width={480}
             />
           </div>
         </div>
