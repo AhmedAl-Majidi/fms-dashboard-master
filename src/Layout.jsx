@@ -29,7 +29,6 @@ import "../src/App.css";
 import DataTable from "./components/DataTable";
 // import {DraggableDialog} from "../src/components/DraggableDialog";
 import { Grid } from "@mui/material";
-import AlertDialogSlide from "./components/AlertDialogSlide";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
