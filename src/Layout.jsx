@@ -176,6 +176,7 @@ export default function Layout() {
             iconColor={revenuesBgColor}
             title={cardsTitles.revenues.name}
             balance={sumArrays(getDataByEirad(data, Year.value))}
+            dialogTitle={cardsTitles.revenues.name}
           />
           {/*----------------------------------Expense------------------------------------------*/}
           <DraggableDialog
@@ -189,6 +190,7 @@ export default function Layout() {
             iconColor={expenseBgColor}
             title={cardsTitles.expenses.name}
             balance={sumArrays(getDataByMasrof(data, Year.value))}
+            dialogTitle={cardsTitles.expenses.name}
           />
           {/* <RevenuesIcon /> */}
           {/*-----------------------------------Profit-----------------------------------------*/}
@@ -206,6 +208,7 @@ export default function Layout() {
               sumArrays(getDataByEirad(data, Year.value)) -
               sumArrays(getDataByMasrof(data, Year.value))
             }
+            dialogTitle={cardsTitles.profit.name}
           />
           {/*----------------------------------Cash In------------------------------------------*/}
           <DraggableDialog
@@ -219,6 +222,7 @@ export default function Layout() {
             iconColor={cashInBgColor}
             title={cardsTitles.cashIn.name}
             balance={sumArrays(getDataByEirad(data, Year.value))}
+            dialogTitle={cardsTitles.cashIn.name}
           />
         </section>
       </Grid>
