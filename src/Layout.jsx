@@ -71,7 +71,7 @@ export default function Layout() {
     height: "82px",
   };
   const revenuesBgColor = {
-    backgroundColor: "rgb(119, 221, 119)",
+    backgroundColor: "rgb(203 255 203)",
     height: "82px",
   };
   const expenseBgColor = {
