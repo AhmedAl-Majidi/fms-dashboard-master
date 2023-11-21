@@ -22,7 +22,8 @@ import { Year } from "./YearPicker";
 import { Height } from "@mui/icons-material";
 import "./component.css";
 import { Grid, Box } from "@mui/material";
-import { Transition } from '@material-ui/core/transitions';
+import Slide from '@mui/material/Slide';
+
 
 function PaperComponent(props) {
   return (
@@ -34,7 +35,11 @@ function PaperComponent(props) {
     </Draggable>
   );
 }
-
+// -------------------Transaction-----------------
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+// -----------------------------------------
 export default function DraggableDialog(props) {
   const [open, setOpen] = React.useState(false);
 
@@ -53,6 +58,7 @@ export default function DraggableDialog(props) {
   //     const expenseBgColor = {
   //         backgroundColor: "rgb(255 202 199)"
   //     };
+
 
   return (
     <Grid xs={12} sm={6} md={3} marginTop={1} item>
@@ -89,7 +95,10 @@ export default function DraggableDialog(props) {
             onClose={handleClose}
             PaperComponent={PaperComponent}
             aria-labelledby="draggable-dialog-title"
+            // Trasnaction
             TransitionComponent={Transition}
+            keepMounted
+          // -------
           >
             <DialogTitle style={{ cursor: "move", textAlign: "center", fontFamily: "cairo" }} id="draggable-dialog-title">
               {props.dialogTitle} تفصيلي

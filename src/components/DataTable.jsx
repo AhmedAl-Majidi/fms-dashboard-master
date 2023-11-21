@@ -36,7 +36,7 @@ export default function DataTable() {
           },
         }}
         pageSizeOptions={[6, 12]}
-        checkboxSelection
+        // checkboxSelection
         style={{ fontFamily: "cairo" }}
       />
     </div>
