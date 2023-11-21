@@ -71,7 +71,7 @@ export default function Layout() {
     height: "82px",
   };
   const revenuesBgColor = {
-    backgroundColor: "rgb(255 245 193)",
+    backgroundColor: "rgb(119, 221, 119)",
     height: "82px",
   };
   const expenseBgColor = {
@@ -168,12 +168,12 @@ export default function Layout() {
           <DraggableDialog
             icon={
               <FontAwesomeIcon
-                icon={faReceipt}
-                style={{ color: "#FF6961" }}
+                icon={faMoneyBillAlt}
+                style={{ color: "#77DD77" }}
                 size="4x"
               />
             }
-            iconColor={cashInBgColor}
+            iconColor={revenuesBgColor}
             title={cardsTitles.revenues.name}
             balance={sumArrays(getDataByEirad(data, Year.value))}
           />
