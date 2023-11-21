@@ -62,20 +62,20 @@ export default function Layout() {
   // end abood
 
   // Icon Colores
-  const cashInBgColor = {
-    backgroundColor: "rgb(204, 189, 165)",
-    height: "82px",
-  };
-  const profitsBgColor = {
-    backgroundColor: "rgb(255 245 193)",
-    height: "82px",
-  };
   const revenuesBgColor = {
     backgroundColor: "rgb(203 255 203)",
     height: "82px",
   };
   const expenseBgColor = {
     backgroundColor: "rgb(255 202 199)",
+    height: "82px",
+  };
+  const profitsBgColor = {
+    backgroundColor: "rgb(255 245 193)",
+    height: "82px",
+  };
+  const cashInBgColor = {
+    backgroundColor: "rgb(204, 189, 165)",
     height: "82px",
   };
 
