@@ -71,7 +71,7 @@ export default function DraggableDialog(props) {
             style={{ fontFamily: "cairo" }}
           >
             {/* balance */}
-            <div className="col-7 d-flex fs-1 text-bold">
+            <div className="col-7 d-flex fs-1 text-bold" style={{ fontFamily: "oswald" }}>
               {formattedBalance()}
             </div>
 
@@ -84,7 +84,7 @@ export default function DraggableDialog(props) {
                 <div>{props.icon}</div>
               </div>
               {/* Title */}
-              <div className="col fs-6 text-bold text-black-50 ">{props.title}</div>
+              <div className="col fs-6  text-black-50 ">{props.title}</div>
             </div>
           </section>
         </Button>
