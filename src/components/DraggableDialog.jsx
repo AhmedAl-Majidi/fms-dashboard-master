@@ -59,7 +59,7 @@ export default function DraggableDialog(props) {
   return (
     // <Grid xs={12} sm={6} md={3} marginTop={1} item>
     //   <Box>
-    <div className="col-sm-6 col-md-6 col-lg-3">
+    <div className="col-sm-6 col-md-6 col-lg-3 mb-2">
       <React.Fragment>
         <Button
           variant=""
@@ -71,7 +71,7 @@ export default function DraggableDialog(props) {
             style={{ fontFamily: "cairo" }}
           >
             {/* balance */}
-            <div className="col-7 d-flex fs-1 text-bold numbersFont" style={{ fontFamily: "oswald" }}>
+            <div className="col-7 d-flex  text-bold numbersFont m-auto" style={{ fontFamily: "oswald" }}>
               {formattedBalance()}
             </div>
 

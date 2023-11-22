@@ -72,8 +72,8 @@ export default function GlCard(props) {
                   component="div"
                   align="center"
                   className="icon"
-                  // height={60}
-                  // width={100}
+                // height={60}
+                // width={100}
                 >
                   {props.icon}
                 </Typography>
