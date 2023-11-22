@@ -3,10 +3,12 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Year } from "./YearPicker";
 import { data1 } from "../data/ApiData";
 
+
+
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
-  { field: "month", headerName: "الشهر", width: 130 },
-  { field: "balance", headerName: "الرصيد", width: 130 },
+  { field: "month", headerName: "الشهر", width: 120 },
+  { field: "balance", headerName: "الرصيد", width: 120 },
 ];
 
 const rows = [
@@ -26,7 +28,7 @@ const rows = [
 
 export default function DataTable() {
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: 425, width: "100%" }}>
       <DataGrid
         rows={rows}
         columns={columns}

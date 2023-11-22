@@ -28,7 +28,7 @@ import Globe from "./components/Globe";
 import "../src/App.css";
 import DataTable from "./components/DataTable";
 // import {DraggableDialog} from "../src/components/DraggableDialog";
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -157,75 +157,75 @@ export default function Layout() {
           </div>*/}
       {/*} </section>/*}
       {/*==================================Cards2=========================================*/}
-      <Grid
+      {/* <Grid
         container
-        spacing={0}
-        // columns={{ xs: 4, sm: 8, md: 12 }}
         justifyContent="space-around"
-      >
-        <section className="row mb-4">
-          {/*---------------------------------------Revenues-------------------------------------*/}
-          <DraggableDialog
-            icon={
-              <FontAwesomeIcon
-                icon={faMoneyBillAlt}
-                style={{ color: "#77DD77" }}
-                size="4x"
-              />
-            }
-            iconColor={revenuesBgColor}
-            title={cardsTitles.revenues.name}
-            balance={sumArrays(getDataByEirad(data, Year.value))}
-            dialogTitle={cardsTitles.revenues.name}
-          />
-          {/*----------------------------------Expense------------------------------------------*/}
-          <DraggableDialog
-            icon={
-              <FontAwesomeIcon
-                icon={faReceipt}
-                style={{ color: "#FF6961" }}
-                size="4x"
-              />
-            }
-            iconColor={expenseBgColor}
-            title={cardsTitles.expenses.name}
-            balance={sumArrays(getDataByMasrof(data, Year.value))}
-            dialogTitle={cardsTitles.expenses.name}
-          />
-          {/* <RevenuesIcon /> */}
-          {/*-----------------------------------Profit-----------------------------------------*/}
-          <DraggableDialog
-            icon={
-              <FontAwesomeIcon
-                icon={faChartLine}
-                style={{ color: "#FFD700" }}
-                size="4x"
-              />
-            }
-            iconColor={profitsBgColor}
-            title={cardsTitles.profit.name}
-            balance={
-              sumArrays(getDataByEirad(data, Year.value)) -
-              sumArrays(getDataByMasrof(data, Year.value))
-            }
-            dialogTitle={cardsTitles.profit.name}
-          />
-          {/*----------------------------------Cash In------------------------------------------*/}
-          <DraggableDialog
-            icon={
-              <FontAwesomeIcon
-                icon={faSackDollar}
-                style={{ color: "#704700" }}
-                size="4x"
-              />
-            }
-            iconColor={cashInBgColor}
-            title={cardsTitles.cashIn.name}
-            balance={sumArrays(getDataByEirad(data, Year.value))}
-            dialogTitle={cardsTitles.cashIn.name}
-          />
-        </section>
-      </Grid>
+      > */}
+
+      <section className="row mb-4">
+        {/*---------------------------------------Revenues-------------------------------------*/}
+        <DraggableDialog
+          icon={
+            <FontAwesomeIcon
+              icon={faMoneyBillAlt}
+              style={{ color: "#77DD77" }}
+              size="4x"
+            />
+          }
+          iconColor={revenuesBgColor}
+          title={cardsTitles.revenues.name}
+          balance={sumArrays(getDataByEirad(data, Year.value))}
+          dialogTitle={cardsTitles.revenues.name}
+        />
+        {/*----------------------------------Expense------------------------------------------*/}
+        <DraggableDialog
+          icon={
+            <FontAwesomeIcon
+              icon={faReceipt}
+              style={{ color: "#FF6961" }}
+              size="4x"
+            />
+          }
+          iconColor={expenseBgColor}
+          title={cardsTitles.expenses.name}
+          balance={sumArrays(getDataByMasrof(data, Year.value))}
+          dialogTitle={cardsTitles.expenses.name}
+        />
+        {/* <RevenuesIcon /> */}
+        {/*-----------------------------------Profit-----------------------------------------*/}
+        <DraggableDialog
+          icon={
+            <FontAwesomeIcon
+              icon={faChartLine}
+              style={{ color: "#FFD700" }}
+              size="4x"
+            />
+          }
+          iconColor={profitsBgColor}
+          title={cardsTitles.profit.name}
+          balance={
+            sumArrays(getDataByEirad(data, Year.value)) -
+            sumArrays(getDataByMasrof(data, Year.value))
+          }
+          dialogTitle={cardsTitles.profit.name}
+        />
+        {/*----------------------------------Cash In------------------------------------------*/}
+        <DraggableDialog
+          icon={
+            <FontAwesomeIcon
+              icon={faSackDollar}
+              style={{ color: "#704700" }}
+              size="4x"
+            />
+          }
+          iconColor={cashInBgColor}
+          title={cardsTitles.cashIn.name}
+          balance={sumArrays(getDataByEirad(data, Year.value))}
+          dialogTitle={cardsTitles.cashIn.name}
+        />
+      </section>
+
+      {/* </Grid> */}
       {/* =================================Charts=======================================*/}
 
       <section className="row mt-3">

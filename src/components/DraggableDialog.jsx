@@ -23,7 +23,7 @@ import { Height } from "@mui/icons-material";
 import "./component.css";
 import { Grid, Box } from "@mui/material";
 import Slide from '@mui/material/Slide';
-
+import numeral from 'numeral';
 
 function PaperComponent(props) {
   return (
@@ -51,72 +51,71 @@ export default function DraggableDialog(props) {
     setOpen(false);
   };
 
-  // Icon Colores
-  //   const cashInBgColor = {
-  //     backgroundColor: "rgb(204, 189, 165)"
-  //   };
-  //     const expenseBgColor = {
-  //         backgroundColor: "rgb(255 202 199)"
-  //     };
 
+  const formattedBalance = () => {
+    return numeral(props.balance).format('$0.0a');
+  }
 
   return (
-    <Grid xs={12} sm={6} md={3} marginTop={1} item>
-      <Box>
-        <React.Fragment>
-          <Button
-            variant=""
-            onClick={handleClickOpen}
-            sx={{ height: "130px", width: 300, boxShadow: 5 }}
+    // <Grid xs={12} sm={6} md={3} marginTop={1} item>
+    //   <Box>
+    <div className="col-sm-6 col-md-6 col-lg-3">
+      <React.Fragment>
+        <Button
+          variant=""
+          onClick={handleClickOpen}
+          sx={{ height: "130px", width: "100%", boxShadow: 5 }}
+        >
+          <section
+            className="container row   flex-xxl-grow-1"
+            style={{ fontFamily: "cairo" }}
           >
-            <section
-              className="container row  justify-content-between"
-              style={{ fontFamily: "cairo" }}
-            >
-              <div className="col-5  d-flex justify-content-center align-items-center fs-1  mb-4 ">
-                {props.balance}$
-              </div>
+            {/* balance */}
+            <div className="col-7 d-flex fs-1 text-bold">
+              {formattedBalance()}
+            </div>
 
+            <div className="col-5 d-flex flex-column justify-content-center align-items-center">
               {/* Icon */}
-              <div className="col-6">
-                <div
-                  className="col rounded-circle d-flex justify-content-center align-items-center"
-                  style={props.iconColor}
-                >
-                  <div>{props.icon}</div>
-                </div>
-                {/* Title */}
-                <div className="col fs-6 fw-light">{props.title}</div>
+              <div
+                className="col-10 rounded-circle d-flex icon justify-content-center align-items-center"
+                style={props.iconColor}
+              >
+                <div>{props.icon}</div>
               </div>
-            </section>
-          </Button>
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            PaperComponent={PaperComponent}
-            aria-labelledby="draggable-dialog-title"
-            // Trasnaction
-            TransitionComponent={Transition}
-            keepMounted
-          // -------
-          >
-            <DialogTitle style={{ cursor: "move", textAlign: "center", fontFamily: "cairo" }} id="draggable-dialog-title">
-              {props.dialogTitle} تفصيلي
-            </DialogTitle>
-            <DialogContent>
-              {/* <DialogContentText> */}
-              <DataTable />
-              {/* </DialogContentText> */}
-            </DialogContent>
-            <DialogActions>
-              <Button autoFocus onClick={handleClose} style={{ fontFamily: "cairo" }}>
-                خروج
-              </Button>
-              {/* <Button onClick={handleClose}>Subscribe</Button> */}
-            </DialogActions>
-          </Dialog>
-        </React.Fragment>
-      </Box>
-    </Grid>
+              {/* Title */}
+              <div className="col fs-6 text-bold text-black-50 ">{props.title}</div>
+            </div>
+          </section>
+        </Button>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          PaperComponent={PaperComponent}
+          aria-labelledby="draggable-dialog-title"
+          // Trasnaction
+          TransitionComponent={Transition}
+          keepMounted
+        // -------
+        >
+          <DialogTitle style={{ cursor: "move", textAlign: "center", fontFamily: "cairo" }} id="draggable-dialog-title">
+            {props.dialogTitle} تفصيلي
+          </DialogTitle>
+          <DialogContent>
+            {/* <DialogContentText> */}
+            <DataTable />
+            {/* </DialogContentText> */}
+          </DialogContent>
+          <DialogActions>
+            <Button autoFocus onClick={handleClose} style={{ fontFamily: "cairo" }}>
+              خروج
+            </Button>
+            {/* <Button onClick={handleClose}>Subscribe</Button> */}
+          </DialogActions>
+        </Dialog>
+      </React.Fragment>
+    </div>
+    //   </Box>
+    // </Grid>
   );
 }
