@@ -71,7 +71,7 @@ export default function DraggableDialog(props) {
             style={{ fontFamily: "cairo" }}
           >
             {/* balance */}
-            <div className="col-7 d-flex fs-1 text-bold" style={{ fontFamily: "oswald" }}>
+            <div className="col-7 d-flex fs-1 text-bold numbersFont" style={{ fontFamily: "oswald" }}>
               {formattedBalance()}
             </div>
 
