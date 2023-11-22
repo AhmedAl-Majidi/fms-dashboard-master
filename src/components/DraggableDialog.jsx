@@ -53,7 +53,7 @@ export default function DraggableDialog(props) {
 
 
   const formattedBalance = () => {
-    return numeral(props.balance).format('$0.0a');
+    return numeral(props.balance).format('0.0a');
   }
 
   return (
