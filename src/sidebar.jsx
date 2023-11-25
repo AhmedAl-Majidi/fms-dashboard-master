@@ -94,7 +94,7 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" noWrap component="div" fontFamily={"cairo"}>
             النظــام المالـــي
           </Typography>
         </Toolbar>
@@ -123,13 +123,12 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {/* ['Inbox', 'Starred', 'Send email', 'Drafts'] */}
           {["الحسابات العامة", "نظام المخازن"].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
-                <ListItemIcon>
+                {/* <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
+                </ListItemIcon> */}
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
@@ -137,7 +136,9 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
       </Drawer>
-      <Main open={open}>
+      <Main
+      // open={open}
+      >
         <DrawerHeader />
         <Layout />
       </Main>
