@@ -20,10 +20,10 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import GlLayout from "./GlLayout.jsx";
 import InvLayout from "./InvLayout.jsx";
-import { signal } from "@preact/signals-react";
 import { Margin } from "@mui/icons-material";
-import { subSystems } from "../src/data/subsytems.js"
+import { subSystems, subSysId } from "../src/data/subsytems.js"
 import "../src/assets/fonts/font.css"
+
 
 const drawerWidth = 240;
 
@@ -72,11 +72,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-// 
-export const subSysContent = signal(1);
-
-
-
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -95,7 +90,7 @@ export default function PersistentDrawerLeft() {
   // 
   const handleListItemChange = (e) => {
     // Getting the id of the selected list item (subsystem)
-    subSysContent.value = subSystems.find((item) => item.name == e.target.innerText).id;
+    subSysId.value = subSystems.find((item) => item.name == e.target.innerText).id;
 
     // Hiding the drawer
     setOpen(false);

@@ -28,7 +28,7 @@ import "../src/App.css";
 import DataTable from "./components/DataTable";
 // import {DraggableDialog} from "../src/components/DraggableDialog";
 import { Container, Grid } from "@mui/material";
-import { subSysContent } from "./sidebar";
+import { subSystems, subSysId } from "../src/data/subsytems.js"
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -82,7 +82,7 @@ export default function GlLayout() {
   return (
     <div
       //  className="container"
-      className={subSysContent.value == 1 ? "container" : "d-none"}
+      className={subSysId.value == 1 ? "container" : "d-none"}
     >
       {/*------------------------------------Year Picker------------------------------------ */}
       <section className="row col mb-2">
