@@ -5,7 +5,6 @@ import Paper from "@mui/material/Paper";
 // import Grid from "@mui/material/Grid";
 // import PieChart from "./PieChart2";
 // import LineChart from "./LineChart";
-// import { fromMonth, fromYear } from "./Period";
 import YearPicker from "./components/YearPicker";
 import cardsTitles from "./data/cardsTitles.json";
 // Icons
@@ -29,6 +28,7 @@ import "../src/App.css";
 import DataTable from "./components/DataTable";
 // import {DraggableDialog} from "../src/components/DraggableDialog";
 import { Container, Grid } from "@mui/material";
+import { subSysContent } from "./sidebar";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -38,7 +38,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function Layout() {
+export default function GlLayout() {
   // abood
   const data = data1.value;
   const getDataByEirad = (propData, id) => {
@@ -80,7 +80,10 @@ export default function Layout() {
   };
 
   return (
-    <div className="container">
+    <div
+      //  className="container"
+      className={subSysContent.value == 1 ? "container" : "d-none"}
+    >
       {/*------------------------------------Year Picker------------------------------------ */}
       <section className="row col mb-2">
         <div className="d-flex justify-content-center align-items-center">

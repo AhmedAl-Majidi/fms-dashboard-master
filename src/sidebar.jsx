@@ -18,8 +18,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import Layout from "./Layout";
-// import Layout2 from "./Layout2";
+import GlLayout from "./GlLayout.jsx";
+import InvLayout from "./InvLayout.jsx";
+import { signal } from "@preact/signals-react";
+import { Margin } from "@mui/icons-material";
+import { subSystems } from "../src/data/subsytems.js"
+import "../src/assets/fonts/font.css"
 
 const drawerWidth = 240;
 
@@ -68,9 +72,17 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
+// 
+export const subSysContent = signal(1);
+
+
+
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  // 
+  // const { children, value, index, ...other } = props;
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -80,6 +92,18 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
+  // 
+  const handleListItemChange = (e) => {
+    // Getting the id of the selected list item (subsystem)
+    subSysContent.value = subSystems.find((item) => item.name == e.target.innerText).id;
+
+    // Hiding the drawer
+    setOpen(false);
+  }
+
+  // The names of the subsystems [الحسابات-المخازن-...]
+  const subSystemNames = Array.from(subSystems, (x) => x.name);
+  // 
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -99,6 +123,7 @@ export default function PersistentDrawerLeft() {
           </Typography>
         </Toolbar>
       </AppBar>
+
       <Drawer
         sx={{
           width: drawerWidth,
@@ -123,9 +148,9 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["الحسابات العامة", "نظام المخازن"].map((text, index) => (
+          {subSystemNames.map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={handleListItemChange} style={{ flexDirection: "column", alignItems: "start" }}>
                 {/* <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon> */}
@@ -136,11 +161,30 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
       </Drawer>
+
+      {/* -----new tabs------ */}
+      {/* <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`vertical-tabpanel-${index}`}
+        aria-labelledby={`vertical-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box sx={{ p: 3 }}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div> */}
+      {/* ----------- */}
+
+      {/*--------------------------- Main content -------------------------*/}
       <Main
       // open={open}
       >
         <DrawerHeader />
-        <Layout />
+        <GlLayout />
+        <InvLayout />
       </Main>
     </Box>
   );
