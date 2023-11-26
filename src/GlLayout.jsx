@@ -81,7 +81,6 @@ export default function GlLayout() {
 
   return (
     <div
-      //  className="container"
       className={subSysId.value == 1 ? "container" : "d-none"}
     >
       {/*------------------------------------Year Picker------------------------------------ */}
@@ -91,12 +90,8 @@ export default function GlLayout() {
           <YearPicker />
         </div>
       </section>
-      {/*==================================Cards2=========================================*/}
-      {/* <Grid
-        container
-        justifyContent="space-around"
-      > */}
 
+      {/*==================================Cards2=========================================*/}
       <section className="row mb-4">
         {/*---------------------------------------Revenues-------------------------------------*/}
         <DraggableDialog
@@ -126,7 +121,7 @@ export default function GlLayout() {
           balance={sumArrays(getDataByMasrof(data, Year.value))}
           dialogTitle={cardsTitles.expenses.name}
         />
-        {/* <RevenuesIcon /> */}
+
         {/*-----------------------------------Profit-----------------------------------------*/}
         <DraggableDialog
           icon={
@@ -160,7 +155,7 @@ export default function GlLayout() {
         />
       </section>
 
-      {/* </Grid> */}
+
       {/* =================================Charts=======================================*/}
 
       <section className="row mt-3">

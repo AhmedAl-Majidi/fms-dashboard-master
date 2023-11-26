@@ -5,12 +5,12 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import { signal } from "@preact/signals-react";
-import { Typography } from "@mui/material";
 
 
 export const Year = signal(0);
 
 export default function YearPicker() {
+
   // Handling when year chnged
   const handleChange = (newYear) => {
     const currentDate = dayjs(newYear);
