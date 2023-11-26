@@ -1,7 +1,7 @@
 // --------------- For ChartMonth & PieChart--------------------
 
 // Returns an array of month's revenues balance
-const getDataByEirad = (propData, id) => {
+const getRevenuesData = (propData, id) => {
     const object = propData.find((item) => item.year_id === id);
     return object ? object.dataE : [];
   };
@@ -33,4 +33,4 @@ const getDataByEirad = (propData, id) => {
     return name ? name.nameM : "";
   };
 
-  export {getDataByEirad, getDataByMasrof,sumArrays,getDataByEiradName,getDataByMasrofName}
+  export {getRevenuesData, getDataByMasrof,sumArrays,getDataByEiradName,getDataByMasrofName}

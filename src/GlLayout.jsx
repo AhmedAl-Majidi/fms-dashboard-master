@@ -40,7 +40,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function GlLayout() {
   // abood
   const data = data1.value;
-  const getDataByEirad = (propData, id) => {
+  const getRevenuesData = (propData, id) => {
     const object = propData.find((item) => item.year_id === id);
     return object ? object.dataE : [];
   };
@@ -103,9 +103,9 @@ export default function GlLayout() {
           }
           iconColor={revenuesBgColor}
           title={cardsData.revenues.name}
-          balance={sumArrays(getDataByEirad(data, Year.value))}
+          balance={sumArrays(getRevenuesData(data, Year.value))}
           dialogTitle={cardsData.revenues.name}
-          monthBalance={getDataByEirad(data, Year.value)}
+          monthBalance={getRevenuesData(data, Year.value)}
         />
         {/*----------------------------------Expense------------------------------------------*/}
         <DraggableDialog
@@ -134,7 +134,7 @@ export default function GlLayout() {
           iconColor={profitsBgColor}
           title={cardsData.profit.name}
           balance={
-            sumArrays(getDataByEirad(data, Year.value)) -
+            sumArrays(getRevenuesData(data, Year.value)) -
             sumArrays(getDataByMasrof(data, Year.value))
           }
           dialogTitle={cardsData.profit.name}
@@ -150,7 +150,7 @@ export default function GlLayout() {
           }
           iconColor={cashInBgColor}
           title={cardsData.cashIn.name}
-          balance={sumArrays(getDataByEirad(data, Year.value))}
+          balance={sumArrays(getRevenuesData(data, Year.value))}
           dialogTitle={cardsData.cashIn.name}
         />
       </section>

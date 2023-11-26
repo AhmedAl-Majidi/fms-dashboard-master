@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { data1 } from "../data/glData";
-import { getDataByEirad, getDataByMasrof, getDataByEiradName, getDataByMasrofName } from "../js/calcBalance.js"
+import { getRevenuesData, getDataByMasrof, getDataByEiradName, getDataByMasrofName } from "../js/calcBalance.js"
 
 const ApexChart = (props) => {
   const data = data1.value;
@@ -17,7 +17,7 @@ const ApexChart = (props) => {
       id: 1,
       name: getDataByEiradName(data, props.year),
       type: "column",
-      data: getDataByEirad(data, props.year),
+      data: getRevenuesData(data, props.year),
     },
     {
       id: 2,
@@ -33,7 +33,7 @@ const ApexChart = (props) => {
       name: "صافي الربح",
       type: "column",
       data: subtractArrays(
-        getDataByEirad(data, props.year),
+        getRevenuesData(data, props.year),
         getDataByMasrof(data, props.year)
       ),
     },
