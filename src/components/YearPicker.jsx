@@ -28,13 +28,14 @@ export default function YearPicker() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={["DatePicker"]}>
-        <Typography style={typographyStyle}>
+        {/* <Typography style={typographyStyle}>
           السنة
-        </Typography>
+        </Typography> */}
         <DatePicker
-          // label={'"month" and "year"'}
+          label={'السنة'}
           views={["year"]}
           onChange={handleChange}
+          sx={{ direction: "ltr" }}
         />
       </DemoContainer>
     </LocalizationProvider>
