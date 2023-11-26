@@ -2,7 +2,7 @@
 import ReactApexChart from "react-apexcharts";
 import { data1 } from "../data/ApiData";
 import "../assets/fonts/font.css";
-import { getDataByEirad, getDataByMasrof, sumArrays } from "../js/calcBalance.js"
+import { getDataByEirad, getDataByMasrof, sumArrays } from "../js/calcBalance.js";
 
 function PieChart(props) {
   const data = data1.value;

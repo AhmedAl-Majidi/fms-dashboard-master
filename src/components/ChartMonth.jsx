@@ -1,27 +1,10 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { data1 } from "../data/ApiData";
+import { getDataByEirad, getDataByMasrof, getDataByEiradName, getDataByMasrofName } from "../js/calcBalance.js"
 
 const ApexChart = (props) => {
   const data = data1.value;
-
-  const getDataByEirad = (propData, id) => {
-    const object = propData.find((item) => item.year_id === id);
-    return object ? object.dataE : [];
-  };
-  const getDataByEiradName = (propData, id) => {
-    const name = propData.find((item) => item.year_id === id);
-    return name ? name.nameE : "";
-  };
-
-  const getDataByMasrof = (propData, id) => {
-    const object = propData.find((item) => item.year_id === id);
-    return object ? object.dataM : [];
-  };
-  const getDataByMasrofName = (propData, id) => {
-    const name = propData.find((item) => item.year_id === id);
-    return name ? name.nameM : "";
-  };
 
   const subtractArrays = (arr1, arr2) => {
     if (arr1.length !== arr2.length) {
