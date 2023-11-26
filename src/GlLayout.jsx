@@ -18,7 +18,7 @@ import {
 import ChartMonth from "./components/ChartMonth";
 import { Year } from "./components/YearPicker";
 import { PieChart } from "./components/PieChart";
-import { data1 } from "./data/ApiData";
+import { data1 } from "./data/glData";
 import DraggableDialog from "./components/DraggableDialog";
 // import { RevenuesIcon } from "../src/assets/icons/RevenuesIcon.svg"
 import Draggable from "react-draggable";

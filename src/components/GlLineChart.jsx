@@ -1,9 +1,9 @@
 import React from "react";
-import Chart from "react-apexcharts";
-import { data1 } from "../data/glData";
+import Chart from "apexcharts";
+import { data1 } from "../data/glData.js";
 import { getDataByEirad, getDataByMasrof, getDataByEiradName, getDataByMasrofName } from "../js/calcBalance.js"
 
-const ApexChart = (props) => {
+const GlLineChart = (props) => {
   const data = data1.value;
 
   const subtractArrays = (arr1, arr2) => {
@@ -116,4 +116,4 @@ const ApexChart = (props) => {
   );
 };
 
-export default ApexChart;
+export default GlLineChart;

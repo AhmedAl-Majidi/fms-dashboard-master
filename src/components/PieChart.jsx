@@ -1,6 +1,6 @@
 // import React from "react";
 import ReactApexChart from "react-apexcharts";
-import { data1 } from "../data/ApiData";
+import { data1 } from "../data/glData";
 import "../assets/fonts/font.css";
 import { getDataByEirad, getDataByMasrof, sumArrays } from "../js/calcBalance.js";
 
