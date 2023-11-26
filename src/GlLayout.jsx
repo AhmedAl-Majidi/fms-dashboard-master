@@ -45,7 +45,7 @@ export default function GlLayout() {
     return object ? object.dataE : [];
   };
 
-  const getDataByMasrof = (propData, id) => {
+  const getExpensesData = (propData, id) => {
     const object = propData.find((item) => item.year_id === id);
     return object ? object.dataM : [];
   };
@@ -118,7 +118,7 @@ export default function GlLayout() {
           }
           iconColor={expenseBgColor}
           title={cardsData.expenses.name}
-          balance={sumArrays(getDataByMasrof(data, Year.value))}
+          balance={sumArrays(getExpensesData(data, Year.value))}
           dialogTitle={cardsData.expenses.name}
         />
 
@@ -135,7 +135,7 @@ export default function GlLayout() {
           title={cardsData.profit.name}
           balance={
             sumArrays(getRevenuesData(data, Year.value)) -
-            sumArrays(getDataByMasrof(data, Year.value))
+            sumArrays(getExpensesData(data, Year.value))
           }
           dialogTitle={cardsData.profit.name}
         />

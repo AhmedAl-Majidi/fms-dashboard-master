@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "apexcharts";
 import { data1 } from "../data/glData.js";
-import { getRevenuesData, getDataByMasrof, getDataByEiradName, getDataByMasrofName } from "../js/calcBalance.js"
+import { getRevenuesData, getExpensesData, getDataByEiradName, getDataByMasrofName } from "../js/calcBalance.js"
 
 const GlLineChart = (props) => {
   const data = data1.value;
@@ -23,7 +23,7 @@ const GlLineChart = (props) => {
       id: 2,
       name: getDataByMasrofName(data, props.year),
       type: "column",
-      data: getDataByMasrof(data, props.year),
+      data: getExpensesData(data, props.year),
     },
   ];
 
@@ -35,7 +35,7 @@ const GlLineChart = (props) => {
       type: "column",
       data: subtractArrays(
         getRevenuesData(data, props.year),
-        getDataByMasrof(data, props.year)
+        getExpensesData(data, props.year)
       ),
     },
   ];

@@ -7,7 +7,7 @@ const getRevenuesData = (propData, id) => {
   };
 
   // Returns an array of month's expenses balance
-  const getDataByMasrof = (propData, id) => {
+  const getExpensesData = (propData, id) => {
     const object = propData.find((item) => item.year_id === id);
     return object ? object.dataM : [];
   };
@@ -33,4 +33,4 @@ const getRevenuesData = (propData, id) => {
     return name ? name.nameM : "";
   };
 
-  export {getRevenuesData, getDataByMasrof,sumArrays,getDataByEiradName,getDataByMasrofName}
+  export {getRevenuesData, getExpensesData,sumArrays,getDataByEiradName,getDataByMasrofName}
