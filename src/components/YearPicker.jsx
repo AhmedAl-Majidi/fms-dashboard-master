@@ -19,18 +19,10 @@ export default function YearPicker() {
     Year.value = formattedYear;
   };
 
-  const typographyStyle = {
-    marginTop: 'auto',
-    marginBottom: 'auto',
-    marginLeft: '5px',
-    fontFamily: 'cairo',
-  };
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={["DatePicker"]}>
-        {/* <Typography style={typographyStyle}>
-          السنة
-        </Typography> */}
+
         <DatePicker
           label={'السنة'}
           views={["year"]}
