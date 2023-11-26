@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import Draggable from "react-draggable";
 import DataTable from "./DataTable";
 import { data1 } from "../data/ApiData";
-import cardsTitles from "../data/cardsTitles.json";
+import cardsData from "../data/cardsData.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSackDollar,

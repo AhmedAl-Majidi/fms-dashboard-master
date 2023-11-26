@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 // import PieChart from "./PieChart2";
 // import LineChart from "./LineChart";
 import YearPicker from "./components/YearPicker";
-import cardsTitles from "./data/cardsTitles.json";
+import cardsData from "./data/cardsData.json";
 // Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -102,9 +102,9 @@ export default function GlLayout() {
             />
           }
           iconColor={revenuesBgColor}
-          title={cardsTitles.revenues.name}
+          title={cardsData.revenues.name}
           balance={sumArrays(getDataByEirad(data, Year.value))}
-          dialogTitle={cardsTitles.revenues.name}
+          dialogTitle={cardsData.revenues.name}
           monthBalance={getDataByEirad(data, Year.value)}
         />
         {/*----------------------------------Expense------------------------------------------*/}
@@ -117,9 +117,9 @@ export default function GlLayout() {
             />
           }
           iconColor={expenseBgColor}
-          title={cardsTitles.expenses.name}
+          title={cardsData.expenses.name}
           balance={sumArrays(getDataByMasrof(data, Year.value))}
-          dialogTitle={cardsTitles.expenses.name}
+          dialogTitle={cardsData.expenses.name}
         />
 
         {/*-----------------------------------Profit-----------------------------------------*/}
@@ -132,12 +132,12 @@ export default function GlLayout() {
             />
           }
           iconColor={profitsBgColor}
-          title={cardsTitles.profit.name}
+          title={cardsData.profit.name}
           balance={
             sumArrays(getDataByEirad(data, Year.value)) -
             sumArrays(getDataByMasrof(data, Year.value))
           }
-          dialogTitle={cardsTitles.profit.name}
+          dialogTitle={cardsData.profit.name}
         />
         {/*----------------------------------Cash In------------------------------------------*/}
         <DraggableDialog
@@ -149,9 +149,9 @@ export default function GlLayout() {
             />
           }
           iconColor={cashInBgColor}
-          title={cardsTitles.cashIn.name}
+          title={cardsData.cashIn.name}
           balance={sumArrays(getDataByEirad(data, Year.value))}
-          dialogTitle={cardsTitles.cashIn.name}
+          dialogTitle={cardsData.cashIn.name}
         />
       </section>
 
