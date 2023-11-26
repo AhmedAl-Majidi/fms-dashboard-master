@@ -8,7 +8,6 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Paper from "@mui/material/Paper";
 import Draggable from "react-draggable";
 import DataTable from "./DataTable";
-import GlCard from "./GlCard";
 import { data1 } from "../data/ApiData";
 import cardsTitles from "../data/cardsTitles.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -39,7 +38,7 @@ function PaperComponent(props) {
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-// -----------------------------------------
+// -----------------------------------------------
 export default function DraggableDialog(props) {
   const [open, setOpen] = React.useState(false);
 
@@ -70,20 +69,20 @@ export default function DraggableDialog(props) {
             className="container row   flex-xxl-grow-1"
             style={{ fontFamily: "cairo" }}
           >
-            {/* balance */}
+            {/*------------------------------ balance ------------------------------*/}
             <div className="col-7 d-flex  text-bold numbersFont m-auto" style={{ fontFamily: "oswald" }}>
               {formattedBalance()}
             </div>
 
             <div className="col-5 d-flex flex-column justify-content-center align-items-center">
-              {/* Icon */}
+              {/*------------------------------ Icon ------------------------------ */}
               <div
                 className="col-10 rounded-circle d-flex icon justify-content-center align-items-center"
                 style={props.iconColor}
               >
                 <div>{props.icon}</div>
               </div>
-              {/* Title */}
+              {/*------------------------------ Title ------------------------------  */}
               <div className="col fs-6  text-black-50 ">{props.title}</div>
             </div>
           </section>
@@ -103,7 +102,7 @@ export default function DraggableDialog(props) {
           </DialogTitle>
           <DialogContent>
             {/* <DialogContentText> */}
-            <DataTable />
+            <DataTable monthBalance={props.monthBalance} />
             {/* </DialogContentText> */}
           </DialogContent>
           <DialogActions>

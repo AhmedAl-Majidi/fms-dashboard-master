@@ -19,7 +19,6 @@ import ChartMonth from "./components/ChartMonth";
 import { Year } from "./components/YearPicker";
 import { PieChart } from "./components/PieChart";
 import { data1 } from "./data/ApiData";
-import GlCard from "./components/GlCard";
 import DraggableDialog from "./components/DraggableDialog";
 // import { RevenuesIcon } from "../src/assets/icons/RevenuesIcon.svg"
 import Draggable from "react-draggable";
@@ -106,6 +105,7 @@ export default function GlLayout() {
           title={cardsTitles.revenues.name}
           balance={sumArrays(getDataByEirad(data, Year.value))}
           dialogTitle={cardsTitles.revenues.name}
+          monthBalance={getDataByEirad(data, Year.value)}
         />
         {/*----------------------------------Expense------------------------------------------*/}
         <DraggableDialog
