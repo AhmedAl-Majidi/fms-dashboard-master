@@ -1,10 +1,10 @@
 import React from "react";
 import Chart from "apexcharts";
-import { data1 } from "../data/glData.js";
+import { ApiData } from "../data/glData.js";
 import { getRevenuesData, getExpensesData, getDataByEiradName, getDataByMasrofName } from "../js/calcBalance.js"
 
 const GlLineChart = (props) => {
-  const data = data1.value;
+  const data = ApiData.value;
 
   const subtractArrays = (arr1, arr2) => {
     if (arr1.length !== arr2.length) {

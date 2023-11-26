@@ -1,6 +1,6 @@
 import { signal } from "@preact/signals-react";
 
-const data = [
+export const ApiData = signal([
   {
     year_id: 2023,
     nameE: "الايرادات",
@@ -49,6 +49,4 @@ const data = [
     dataE: [4, 3, 4, 2, 11, 10, 8, 15, 3, 15, 18, 19].sort((a, b) => b - a), //.sort((a, b) => b - a),
     dataM: [3, 4, 2, 1, 4, 4, 6, 8, 3, 6, 1, 10].sort((a, b) => b - a),
   },
-];
-
-export const data1 = signal(data);
+]);

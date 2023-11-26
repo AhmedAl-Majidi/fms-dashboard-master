@@ -18,7 +18,7 @@ import {
 import ChartMonth from "./components/ChartMonth";
 import { Year } from "./components/YearPicker";
 import { PieChart } from "./components/PieChart";
-import { data1 } from "./data/glData";
+import { ApiData } from "./data/glData";
 import DraggableDialog from "./components/DraggableDialog";
 // import { RevenuesIcon } from "../src/assets/icons/RevenuesIcon.svg"
 import Draggable from "react-draggable";
@@ -39,7 +39,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function GlLayout() {
   // abood
-  const data = data1.value;
+  const data = ApiData.value;
   const getRevenuesData = (propData, id) => {
     const object = propData.find((item) => item.year_id === id);
     return object ? object.dataE : [];

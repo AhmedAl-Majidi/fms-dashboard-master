@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Year } from "./YearPicker";
-import { data1 } from "../data/glData";
+import { ApiData } from "../data/glData";
 
 
 

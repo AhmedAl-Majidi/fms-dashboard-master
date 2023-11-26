@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Paper from "@mui/material/Paper";
 import Draggable from "react-draggable";
 import DataTable from "./DataTable";
-import { data1 } from "../data/glData";
+import { ApiData } from "../data/glData";
 import cardsData from "../data/cardsData.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
