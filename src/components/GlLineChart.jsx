@@ -12,7 +12,8 @@ const GlLineChart = (props) => {
     }
     return arr1.map((value, index) => value - arr2[index]);
   };
-  const dataAll = [
+
+  const lineChartSeries = [
     {
       id: 1,
       name: getDataByEiradName(data, props.year),
@@ -25,11 +26,6 @@ const GlLineChart = (props) => {
       type: "column",
       data: getExpensesData(data, props.year),
     },
-  ];
-
-
-  const allData = [
-    ...dataAll,
     {
       name: "صافي الربح",
       type: "column",
@@ -41,7 +37,7 @@ const GlLineChart = (props) => {
   ];
 
   const options = {
-    series: allData,
+    series: lineChartSeries,
     chart: {
       height: 368,
       type: "bar",
