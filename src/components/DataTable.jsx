@@ -1,7 +1,6 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { Year } from "./YearPicker";
-import { ApiData } from "../data/glData";
+import { ExpensesData } from "./YearPicker"
 
 
 
@@ -26,7 +25,16 @@ const rows = [
   { id: 12, month: "ديسمبر", balance: 3 },
 ];
 
+// let rows2 = [];
+
 export default function DataTable() {
+
+  // ExpensesData.value.map(element => {
+  //   rows2.push({ id: element, month: "يناير", balance: 55 })
+  // });
+
+  // console.log(rows2);
+
   return (
     <div style={{ height: 425, width: "100%" }}>
       <DataGrid

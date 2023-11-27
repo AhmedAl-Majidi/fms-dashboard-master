@@ -2,10 +2,14 @@ import React from "react";
 import Chart from "apexcharts";
 import { ApiData } from "../data/glData.js";
 import { getRevenuesData, getExpensesData, getDataByEiradName, getDataByMasrofName } from "../js/calcBalance.js"
+// import { signal } from "@preact/signals-react";
+
+// export let ExpensesData;
 
 const GlLineChart = (props) => {
   const data = ApiData.value;
 
+  // ExpensesData = signal(getExpensesData(data, props.year));
   const subtractArrays = (arr1, arr2) => {
     if (arr1.length !== arr2.length) {
       throw new Error("Array lengths must be equal");
@@ -24,14 +28,14 @@ const GlLineChart = (props) => {
       id: 2,
       name: getDataByMasrofName(data, props.year),
       type: "column",
-      data: getExpensesData(data, props.year),
+      data: ExpensesData,
     },
     {
       name: "صافي الربح",
       type: "column",
       data: subtractArrays(
         getRevenuesData(data, props.year),
-        getExpensesData(data, props.year)
+        ExpensesData
       ),
     },
   ];
@@ -112,5 +116,4 @@ const GlLineChart = (props) => {
     </div>
   );
 };
-
 export default GlLineChart;
