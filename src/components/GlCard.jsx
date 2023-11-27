@@ -60,21 +60,21 @@ export default function GlCard(props) {
     //   <Box>
     <div className="col-sm-6 col-md-6 col-lg-3 mb-2">
       <React.Fragment>
-        <Button
+        <Box
           // variant=""
           // onClick={handleClickOpen}
-          sx={{ height: "130px", width: "100%", boxShadow: 5 }}
+          sx={{ width: "100%", boxShadow: 5 }}
         >
           <section
-            className="container row   flex-xxl-grow-1"
+            className="container row p-3"
             style={{ fontFamily: "cairo" }}
           >
             {/*------------------------------ balance ------------------------------*/}
             <div className="col-7 d-flex flex-column m-auto" style={{ fontFamily: "oswald" }}>
-              <div className="col text-bold numbersFont">
+              <div className="col text-bold numbersFont text-center">
                 {formattedBalance()}
               </div>
-              <div className="col">
+              <div className="col text-center mt-3">
                 <Button variant="outlined" sx={{ fontFamily: "cairo", padding: "2px" }}
                   onClick={handleClickOpen}>
                   عرض التفاصيل</Button>
@@ -90,10 +90,10 @@ export default function GlCard(props) {
                 <div>{props.icon}</div>
               </div>
               {/*------------------------------ Title ------------------------------  */}
-              <div className="col fs-6  text-black-50 ">{props.title}</div>
+              <div className="col fs-6  text-black-50">{props.title}</div>
             </div>
           </section>
-        </Button>
+        </Box>
         <Dialog
           open={open}
           onClose={handleClose}
