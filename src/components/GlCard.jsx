@@ -92,8 +92,8 @@ export default function GlCard(props) {
               >
                 <div>{props.icon}</div>
               </div>
-              {/*------------------------------ Title ------------------------------  */}
-              <div className="col fs-6  text-black-50">{props.title}</div>
+              {/*------------------------------ Name ------------------------------  */}
+              <div className="col fs-6  text-black-50 py-1">{props.title}</div>
             </div>
           </section>
         </Card>
