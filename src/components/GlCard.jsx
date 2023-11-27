@@ -34,11 +34,11 @@ function PaperComponent(props) {
     </Draggable>
   );
 }
-// -------------------Transaction-----------------
+// ------------------- Data Table Transaction-----------------
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-// -----------------------------------------------
+// ------------------------------------------------------------
 export default function GlCard(props) {
   const [open, setOpen] = React.useState(false);
 

@@ -19,13 +19,12 @@ import ChartMonth from "./components/ChartMonth";
 import { Year } from "./components/YearPicker";
 import { PieChart } from "./components/PieChart";
 import { ApiData } from "./data/glData";
-import DraggableDialog from "./components/DraggableDialog";
+import GlCard from "./components/GlCard";
 // import { RevenuesIcon } from "../src/assets/icons/RevenuesIcon.svg"
 import Draggable from "react-draggable";
 import Globe from "./components/Globe";
 import "../src/App.css";
 import DataTable from "./components/DataTable";
-// import {DraggableDialog} from "../src/components/DraggableDialog";
 import { Container, Grid } from "@mui/material";
 import { subSystems, subSysId } from "../src/data/subsytems.js"
 
@@ -93,7 +92,7 @@ export default function GlLayout() {
       {/*==================================Cards2=========================================*/}
       <section className="row mb-4">
         {/*---------------------------------------Revenues-------------------------------------*/}
-        <DraggableDialog
+        <GlCard
           icon={
             <FontAwesomeIcon
               icon={faMoneyBillAlt}
@@ -108,7 +107,7 @@ export default function GlLayout() {
           monthBalance={getRevenuesData(data, Year.value)}
         />
         {/*----------------------------------Expense------------------------------------------*/}
-        <DraggableDialog
+        <GlCard
           icon={
             <FontAwesomeIcon
               icon={faReceipt}
@@ -123,7 +122,7 @@ export default function GlLayout() {
         />
 
         {/*-----------------------------------Profit-----------------------------------------*/}
-        <DraggableDialog
+        <GlCard
           icon={
             <FontAwesomeIcon
               icon={faChartLine}
@@ -140,7 +139,7 @@ export default function GlLayout() {
           dialogTitle={cardsData.profit.name}
         />
         {/*----------------------------------Cash In------------------------------------------*/}
-        <DraggableDialog
+        <GlCard
           icon={
             <FontAwesomeIcon
               icon={faSackDollar}
