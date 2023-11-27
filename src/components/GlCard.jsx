@@ -23,6 +23,7 @@ import "./component.css";
 import { Grid, Box } from "@mui/material";
 import Slide from '@mui/material/Slide';
 import numeral from 'numeral';
+import ListAltSharpIcon from '@mui/icons-material/ListAltSharp';
 
 function PaperComponent(props) {
   return (
@@ -75,7 +76,8 @@ export default function GlCard(props) {
                 {formattedBalance()}
               </div>
               <div className="col text-center mt-3">
-                <Button variant="outlined" sx={{ fontFamily: "cairo", padding: "2px" }}
+                <Button size="medium" variant="outlined" sx={{ fontFamily: "cairo", padding: "2px", paddingRight: "5px" }}
+                  endIcon={<ListAltSharpIcon sx={{ marginRight: "8px" }} />}
                   onClick={handleClickOpen}>
                   عرض التفاصيل</Button>
               </div>
