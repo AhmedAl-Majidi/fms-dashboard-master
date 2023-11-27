@@ -64,7 +64,7 @@ export default function GlCard(props) {
     //   <Box>
     <div className="col-sm-6 col-md-6 col-lg-3 mb-2">
       <React.Fragment>
-        <Card sx={{ boxShadow: 3 }} >
+        <Card sx={{ boxShadow: 5 }} >
           <section
             className="container row p-3"
             style={{ fontFamily: "cairo" }}
@@ -77,7 +77,7 @@ export default function GlCard(props) {
 
               {/* ----------------------- Show Details Button ------------------------- */}
               <div className="col text-center mt-3">
-                <Button size="medium" variant="outlined" sx={{ fontFamily: "cairo", padding: "2px", paddingRight: "5px", borderRadius: 5 }}
+                <Button size="medium" variant="outlined" sx={{ fontFamily: "cairo", padding: "2px", paddingRight: "5px" }}
                   endIcon={<ListAltSharpIcon sx={{ marginRight: "8px" }} />}
                   onClick={handleClickOpen}>
                   عرض التفاصيل</Button>
