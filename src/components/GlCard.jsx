@@ -24,6 +24,7 @@ import { Grid, Box } from "@mui/material";
 import Slide from '@mui/material/Slide';
 import numeral from 'numeral';
 import ListAltSharpIcon from '@mui/icons-material/ListAltSharp';
+import Card from '@mui/material/Card';
 
 function PaperComponent(props) {
   return (
@@ -39,7 +40,9 @@ function PaperComponent(props) {
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-// ------------------------------------------------------------
+
+
+// --------------------------GlCard----------------------------------
 export default function GlCard(props) {
   const [open, setOpen] = React.useState(false);
 
@@ -61,11 +64,7 @@ export default function GlCard(props) {
     //   <Box>
     <div className="col-sm-6 col-md-6 col-lg-3 mb-2">
       <React.Fragment>
-        <Box
-          // variant=""
-          // onClick={handleClickOpen}
-          sx={{ width: "100%", boxShadow: 5 }}
-        >
+        <Card sx={{ boxShadow: 3 }} >
           <section
             className="container row p-3"
             style={{ fontFamily: "cairo" }}
@@ -95,7 +94,9 @@ export default function GlCard(props) {
               <div className="col fs-6  text-black-50">{props.title}</div>
             </div>
           </section>
-        </Box>
+        </Card>
+
+        {/* ------------------------Data Table Dialog------------------------- */}
         <Dialog
           open={open}
           onClose={handleClose}
@@ -122,7 +123,7 @@ export default function GlCard(props) {
           </DialogActions>
         </Dialog>
       </React.Fragment>
-    </div>
+    </div >
     //   </Box>
     // </Grid>
   );
