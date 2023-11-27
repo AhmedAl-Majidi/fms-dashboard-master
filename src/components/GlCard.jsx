@@ -74,8 +74,10 @@ export default function GlCard(props) {
               <div className="col text-bold numbersFont text-center">
                 {formattedBalance()}
               </div>
+
+              {/* ----------------------- Show Details Button ------------------------- */}
               <div className="col text-center mt-3">
-                <Button size="medium" variant="outlined" sx={{ fontFamily: "cairo", padding: "2px", paddingRight: "5px" }}
+                <Button size="medium" variant="outlined" sx={{ fontFamily: "cairo", padding: "2px", paddingRight: "5px", borderRadius: 5 }}
                   endIcon={<ListAltSharpIcon sx={{ marginRight: "8px" }} />}
                   onClick={handleClickOpen}>
                   عرض التفاصيل</Button>
