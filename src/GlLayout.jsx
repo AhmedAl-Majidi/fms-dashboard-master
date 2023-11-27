@@ -96,8 +96,8 @@ export default function GlLayout() {
           icon={
             <FontAwesomeIcon
               icon={faMoneyBillAlt}
-              style={{ color: "#77DD77" }}
-              size="4x"
+              style={{ color: "#77DD77", fontSize: "55px" }}
+            // size="3x"
             />
           }
           iconColor={revenuesBgColor}
@@ -111,8 +111,8 @@ export default function GlLayout() {
           icon={
             <FontAwesomeIcon
               icon={faReceipt}
-              style={{ color: "#FF6961" }}
-              size="4x"
+              style={{ color: "#FF6961", fontSize: "55px" }}
+            // size="3x"
             />
           }
           iconColor={expenseBgColor}
@@ -126,8 +126,8 @@ export default function GlLayout() {
           icon={
             <FontAwesomeIcon
               icon={faChartLine}
-              style={{ color: "#FFD700" }}
-              size="4x"
+              style={{ color: "#FFD700", fontSize: "55px" }}
+            // size="3x"
             />
           }
           iconColor={profitsBgColor}
@@ -143,8 +143,8 @@ export default function GlLayout() {
           icon={
             <FontAwesomeIcon
               icon={faSackDollar}
-              style={{ color: "#704700" }}
-              size="4x"
+              style={{ color: "#704700", fontSize: "55px" }}
+            // size="3x"
             />
           }
           iconColor={cashInBgColor}
