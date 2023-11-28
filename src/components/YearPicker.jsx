@@ -5,18 +5,17 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import { signal } from "@preact/signals-react";
-import { getExpensesData, getRevenuesData } from "../js/calcBalance.js"
+import { getExpensesData, getRevenuesData } from "../js/calcBalance.js";
 import { ApiData } from "../data/glData.js";
-
+import { expensesData, revenuesData } from "../js/calcBalance.js";
 
 export const Year = signal(0);
-export const expensesData = signal([]);
-export const revenuesData = signal([]);
+// export const expensesData = signal([]);
+// export const revenuesData = signal([]);
 
 const data = ApiData.value;
 
 export default function YearPicker() {
-
   // Handling when year chnged
   const handleChange = (newYear) => {
     const currentDate = dayjs(newYear);
@@ -25,15 +24,13 @@ export default function YearPicker() {
 
     expensesData.value = getExpensesData(data, Year.value);
     revenuesData.value = getRevenuesData(data, Year.value);
-
   };
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={["DatePicker"]}>
-
         <DatePicker
-          label={'السنة'}
+          label={"السنة"}
           views={["year"]}
           onChange={handleChange}
           sx={{ direction: "ltr" }}
@@ -42,4 +39,3 @@ export default function YearPicker() {
     </LocalizationProvider>
   );
 }
-

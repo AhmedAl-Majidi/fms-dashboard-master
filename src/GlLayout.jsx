@@ -13,17 +13,14 @@ import { PieChart } from "./components/PieChart";
 import GlCard from "./components/GlCard";
 import "../src/App.css";
 import { subSysId } from "../src/data/subsytems.js";
-import { expensesData, revenuesData, Year } from "./components/YearPicker";
+import { expensesData, revenuesData } from "./js/calcBalance";
+import { Year } from "./components/YearPicker";
 import { sumArrays } from "./js/calcBalance.js";
-import { iconsBgStyle } from "./assets/icons/icons.js"
-
+import { iconsBgStyle } from "./assets/icons/icons.js";
 
 export default function GlLayout() {
-
   return (
-    <div
-      className={subSysId.value == 1 ? "container" : "d-none"}
-    >
+    <div className={subSysId.value == 1 ? "container" : "d-none"}>
       {/*------------------------------------Year Picker------------------------------------ */}
       <section className="row col mb-2">
         <div className="d-flex justify-content-center align-items-center">
@@ -40,7 +37,7 @@ export default function GlLayout() {
             <FontAwesomeIcon
               icon={faMoneyBillAlt}
               style={{ color: "#77DD77", fontSize: "55px" }}
-            // size="3x"
+              // size="3x"
             />
           }
           iconColor={iconsBgStyle.revenues}
@@ -55,7 +52,7 @@ export default function GlLayout() {
             <FontAwesomeIcon
               icon={faReceipt}
               style={{ color: "#FF6961", fontSize: "55px" }}
-            // size="3x"
+              // size="3x"
             />
           }
           iconColor={iconsBgStyle.expenses}
@@ -70,7 +67,7 @@ export default function GlLayout() {
             <FontAwesomeIcon
               icon={faChartLine}
               style={{ color: "#FFD700", fontSize: "55px" }}
-            // size="3x"
+              // size="3x"
             />
           }
           iconColor={iconsBgStyle.profits}
@@ -86,7 +83,7 @@ export default function GlLayout() {
             <FontAwesomeIcon
               icon={faSackDollar}
               style={{ color: "#704700", fontSize: "55px" }}
-            // size="3x"
+              // size="3x"
             />
           }
           iconColor={iconsBgStyle.cashIn}
@@ -95,7 +92,6 @@ export default function GlLayout() {
           dialogTitle={cardsData.cashIn.name}
         />
       </section>
-
 
       {/* =================================Charts=======================================*/}
 
