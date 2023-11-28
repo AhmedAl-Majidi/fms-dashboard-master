@@ -1,10 +1,3 @@
-import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
-// import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-// import Grid from "@mui/material/Grid";
-// import PieChart from "./PieChart2";
-// import LineChart from "./LineChart";
 import YearPicker from "./components/YearPicker";
 import cardsData from "./data/cardsData.json";
 // Icons
@@ -16,66 +9,16 @@ import {
   faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
 import ChartMonth from "./components/ChartMonth";
-import { Year } from "./components/YearPicker";
 import { PieChart } from "./components/PieChart";
-import { ApiData } from "./data/glData";
 import GlCard from "./components/GlCard";
-// import { RevenuesIcon } from "../src/assets/icons/RevenuesIcon.svg"
-import Draggable from "react-draggable";
-import Globe from "./components/Globe";
 import "../src/App.css";
-import DataTable from "./components/DataTable";
-import { Container, Grid } from "@mui/material";
-import { subSystems, subSysId } from "../src/data/subsytems.js"
+import { subSysId } from "../src/data/subsytems.js";
+import { expensesData, revenuesData, Year } from "./components/YearPicker";
+import { sumArrays } from "./js/calcBalance.js";
+import { iconsBgStyle } from "./assets/icons/icons.js"
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 export default function GlLayout() {
-  // abood
-  const data = ApiData.value;
-  const getRevenuesData = (propData, id) => {
-    const object = propData.find((item) => item.year_id === id);
-    return object ? object.dataE : [];
-  };
-
-  const getExpensesData = (propData, id) => {
-    const object = propData.find((item) => item.year_id === id);
-    return object ? object.dataM : [];
-  };
-
-  const sumArrays = (arr) => {
-    const sum = arr.reduce(
-      (accumulator, currentValue) => accumulator + currentValue,
-      0
-    );
-    return sum;
-  };
-
-  // end abood
-
-  // Icon Colores
-  const revenuesBgColor = {
-    backgroundColor: "rgb(203 255 203)",
-    height: "82px",
-  };
-  const expenseBgColor = {
-    backgroundColor: "rgb(255 202 199)",
-    height: "82px",
-  };
-  const profitsBgColor = {
-    backgroundColor: "rgb(255 245 193)",
-    height: "82px",
-  };
-  const cashInBgColor = {
-    backgroundColor: "rgb(204, 189, 165)",
-    height: "82px",
-  };
 
   return (
     <div
@@ -89,7 +32,7 @@ export default function GlLayout() {
         </div>
       </section>
 
-      {/*==================================Cards2=========================================*/}
+      {/*================================== Cards =========================================*/}
       <section className="row mb-4">
         {/*---------------------------------------Revenues-------------------------------------*/}
         <GlCard
@@ -100,11 +43,11 @@ export default function GlLayout() {
             // size="3x"
             />
           }
-          iconColor={revenuesBgColor}
+          iconColor={iconsBgStyle.revenues}
           title={cardsData.revenues.name}
-          balance={sumArrays(getRevenuesData(data, Year.value))}
+          balance={sumArrays(revenuesData.value)}
           dialogTitle={cardsData.revenues.name}
-          monthBalance={getRevenuesData(data, Year.value)}
+          monthBalance={revenuesData.value}
         />
         {/*----------------------------------Expense------------------------------------------*/}
         <GlCard
@@ -115,9 +58,9 @@ export default function GlLayout() {
             // size="3x"
             />
           }
-          iconColor={expenseBgColor}
+          iconColor={iconsBgStyle.expenses}
           title={cardsData.expenses.name}
-          balance={sumArrays(getExpensesData(data, Year.value))}
+          balance={sumArrays(expensesData.value)}
           dialogTitle={cardsData.expenses.name}
         />
 
@@ -130,11 +73,10 @@ export default function GlLayout() {
             // size="3x"
             />
           }
-          iconColor={profitsBgColor}
+          iconColor={iconsBgStyle.profits}
           title={cardsData.profit.name}
           balance={
-            sumArrays(getRevenuesData(data, Year.value)) -
-            sumArrays(getExpensesData(data, Year.value))
+            sumArrays(revenuesData.value) - sumArrays(expensesData.value)
           }
           dialogTitle={cardsData.profit.name}
         />
@@ -147,9 +89,9 @@ export default function GlLayout() {
             // size="3x"
             />
           }
-          iconColor={cashInBgColor}
+          iconColor={iconsBgStyle.cashIn}
           title={cardsData.cashIn.name}
-          balance={sumArrays(getRevenuesData(data, Year.value))}
+          balance={sumArrays(revenuesData.value)}
           dialogTitle={cardsData.cashIn.name}
         />
       </section>

@@ -5,12 +5,13 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import { signal } from "@preact/signals-react";
-import { getExpensesData } from "../js/calcBalance.js"
+import { getExpensesData, getRevenuesData } from "../js/calcBalance.js"
 import { ApiData } from "../data/glData.js";
 
 
 export const Year = signal(0);
-export const expensesData = signal();
+export const expensesData = signal([]);
+export const revenuesData = signal([]);
 
 const data = ApiData.value;
 
@@ -22,9 +23,8 @@ export default function YearPicker() {
     const formattedYear = parseInt(currentDate.format("YYYY"));
     Year.value = formattedYear;
 
-    const x = getExpensesData(data, Year.value);
-    expensesData.value = x;
-    // console.log(expensesData.value);
+    expensesData.value = getExpensesData(data, Year.value);
+    revenuesData.value = getRevenuesData(data, Year.value);
 
   };
 
