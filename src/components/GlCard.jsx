@@ -12,6 +12,7 @@ import Slide from '@mui/material/Slide';
 import numeral from 'numeral';
 import ListAltSharpIcon from '@mui/icons-material/ListAltSharp';
 import Card from '@mui/material/Card';
+import AnimatedNumbers from "react-animated-numbers";
 
 function PaperComponent(props) {
   return (
@@ -57,8 +58,17 @@ export default function GlCard(props) {
           >
             {/*------------------------------ balance ------------------------------*/}
             <div className="col-7 d-flex flex-column m-auto" style={{ fontFamily: "oswald" }}>
-              <div className="col text-bold numbersFont text-center">
-                {formattedBalance()}
+              <div className="col text-bold numbersFont text-center d-flex justify-content-center">
+                {/* {formattedBalance()} */}
+                <AnimatedNumbers
+                  includeComma
+                  transitions={(index) => ({
+                    type: "spring",
+                    duration: index + 0.2,
+                  })}
+                  animateToNumber={parseFloat(formattedBalance())}
+
+                />
               </div>
 
               {/* ----------------------- Show Details Button ------------------------- */}
