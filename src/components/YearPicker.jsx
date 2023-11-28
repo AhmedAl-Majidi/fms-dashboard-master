@@ -10,7 +10,7 @@ import { ApiData } from "../data/glData.js";
 
 
 export const Year = signal(0);
-export const ExpensesData = signal();
+export const expensesData = signal();
 
 const data = ApiData.value;
 
@@ -23,8 +23,8 @@ export default function YearPicker() {
     Year.value = formattedYear;
 
     const x = getExpensesData(data, Year.value);
-    ExpensesData.value = x;
-    // console.log(ExpensesData.value);
+    expensesData.value = x;
+    // console.log(expensesData.value);
 
   };
 
