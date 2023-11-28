@@ -23,16 +23,12 @@ const rows = [
   { id: 12, month: "ديسمبر", balance: 3 },
 ];
 
-// let rows2 = [];
+// const rows2 = rows.map((i) => {
+//   return { id: i.id, month: i.month };
+// });
+// console.log(rows2);
 
 export default function DataTable() {
-  // expensesData.value.map(element => {
-  //   rows2.push({ id: element, month: "يناير", balance: 55 })
-  // });
-
-  // console.log(rows2);
-  // console.log(expensesData.value);
-
   return (
     <div style={{ height: 425, width: "100%" }}>
       <DataGrid
