@@ -3,24 +3,11 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Paper from "@mui/material/Paper";
 import Draggable from "react-draggable";
 import DataTable from "./DataTable";
-import { ApiData } from "../data/glData";
-import cardsData from "../data/cardsData.json";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSackDollar,
-  faMoneyBillAlt,
-  faReceipt,
-  faChartLine,
-} from "@fortawesome/free-solid-svg-icons";
-import { Year } from "./YearPicker";
-import { Height } from "@mui/icons-material";
 import "./component.css";
-import { Grid, Box } from "@mui/material";
 import Slide from '@mui/material/Slide';
 import numeral from 'numeral';
 import ListAltSharpIcon from '@mui/icons-material/ListAltSharp';
@@ -60,8 +47,7 @@ export default function GlCard(props) {
   }
 
   return (
-    // <Grid xs={12} sm={6} md={3} marginTop={1} item>
-    //   <Box>
+
     <div className="col-sm-6 col-md-6 col-lg-3 mb-2">
       <React.Fragment>
         <Card sx={{ boxShadow: 5 }} >
@@ -113,20 +99,18 @@ export default function GlCard(props) {
             {props.dialogTitle} تفصيلي
           </DialogTitle>
           <DialogContent>
-            {/* <DialogContentText> */}
+
             <DataTable monthBalance={props.monthBalance} />
-            {/* </DialogContentText> */}
+
           </DialogContent>
           <DialogActions>
             <Button autoFocus onClick={handleClose} style={{ fontFamily: "cairo" }}>
               خروج
             </Button>
-            {/* <Button onClick={handleClose}>Subscribe</Button> */}
           </DialogActions>
         </Dialog>
       </React.Fragment>
     </div >
-    //   </Box>
-    // </Grid>
+
   );
 }
