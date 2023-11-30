@@ -2,7 +2,6 @@ import React from "react";
 import Chart from "react-apexcharts";
 import { ApiData } from "../data/glData";
 import {
-  getRevenuesData,
   getDataByEiradName,
   getDataByMasrofName,
   expensesData,

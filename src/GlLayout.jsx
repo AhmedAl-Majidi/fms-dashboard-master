@@ -17,6 +17,7 @@ import { expensesData, revenuesData } from "./js/calcBalance";
 import { Year } from "./components/YearPicker";
 import { sumArrays } from "./js/calcBalance.js";
 import { iconsBgStyle } from "./assets/icons/icons.js";
+import { showGlLayout } from "./components/YearPicker";
 
 export default function GlLayout() {
   return (
