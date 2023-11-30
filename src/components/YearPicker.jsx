@@ -9,6 +9,9 @@ import { getExpensesData, getRevenuesData } from "../js/calcBalance.js";
 import { ApiData } from "../data/glData.js";
 import { expensesData, revenuesData } from "../js/calcBalance.js";
 import Alert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 import { useState } from "react";
 
 export const Year = signal(0);
@@ -20,7 +23,7 @@ const data = ApiData.value;
 
 export default function YearPicker() {
   const [showAlert, setShowAlert] = useState(false);
-
+  const [open, setOpen] = useState(false);
   // Handling when year chnged year
 
   const handleChange = (newYear) => {
@@ -31,13 +34,21 @@ export default function YearPicker() {
       // alert(1);
       setShowAlert(false);
       showGlLayout.value = true;
+      setOpen(false);
 
       expensesData.value = getExpensesData(data, Year.value);
       revenuesData.value = getRevenuesData(data, Year.value);
     } else {
       // alert(2);
       setShowAlert(true);
+      setOpen(true);
       showGlLayout.value = false;
+    }
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
     }
   };
 
@@ -53,15 +64,21 @@ export default function YearPicker() {
           />
         </DemoContainer>
       </LocalizationProvider>
-
       {showAlert && (
-        <Alert
-          variant="outlined"
-          severity="error"
-          sx={{ marginTop: 1, marginRight: 1 }}
+        <Stack
+          spacing={2}
+          // sx={{ width: "100%" }}
         >
-          لا توجد بيانات للسنة المدخلة
-        </Alert>
+          <Snackbar open={open} autoHideDuration={6000} onClick={handleClose}>
+            <Alert
+              severity="error"
+              // sx={{ width: "100%" }}
+              onClick={handleClose}
+            >
+              لا توجد بيانات للسنة المدخلة
+            </Alert>
+          </Snackbar>
+        </Stack>
       )}
     </>
   );
