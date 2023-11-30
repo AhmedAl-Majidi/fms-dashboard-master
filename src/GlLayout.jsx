@@ -44,7 +44,6 @@ export default function GlLayout() {
           title={cardsData.revenues.name}
           balance={sumArrays(revenuesData.value)}
           dialogTitle={cardsData.revenues.name}
-          monthBalance={revenuesData.value}
         />
         {/*----------------------------------Expense------------------------------------------*/}
         <GlCard
@@ -59,6 +58,7 @@ export default function GlLayout() {
           title={cardsData.expenses.name}
           balance={sumArrays(expensesData.value)}
           dialogTitle={cardsData.expenses.name}
+          monthBalance={expensesData.value}
         />
 
         {/*-----------------------------------Profit-----------------------------------------*/}

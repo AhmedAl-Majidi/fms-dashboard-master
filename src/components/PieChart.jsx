@@ -2,13 +2,13 @@
 import ReactApexChart from "react-apexcharts";
 import { ApiData } from "../data/glData";
 import "../assets/fonts/font.css";
-import { getRevenuesData, getExpensesData, sumArrays } from "../js/calcBalance.js";
+import { getRevenuesData, sumArrays, expensesData } from "../js/calcBalance.js";
 
 function PieChart(props) {
   const data = ApiData.value;
 
   const dataE = sumArrays(getRevenuesData(data, props.year));
-  const dataM = sumArrays(getExpensesData(data, props.year));
+  const dataM = sumArrays(expensesData.value);
   const dataSaf = dataE - dataM;
   const series = [dataE, dataM, dataSaf];
   const options = {
@@ -28,16 +28,16 @@ function PieChart(props) {
 
           legend: {
             position: "bottom",
-          }
+          },
         },
       },
     ],
   };
 
-  // 
+  //
 
   return (
-    <div style={{ fontFamily: "cairo" }} >
+    <div style={{ fontFamily: "cairo" }}>
       <div className="card">
         <div className="card-body">
           <h4 className="card-title">حركة المصروفات والإيرادات</h4>
@@ -46,12 +46,12 @@ function PieChart(props) {
               options={options}
               series={series}
               type="pie"
-            // width={400}
+              // width={400}
             />
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 
