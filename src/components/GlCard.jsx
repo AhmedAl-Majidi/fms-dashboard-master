@@ -43,7 +43,7 @@ export default function GlCard(props) {
   };
 
   const formattedBalance = () => {
-    return numeral(props.balance).format("0.0a");
+    return numeral(props.balance).format("0.00a");
   };
 
   return (
@@ -72,6 +72,7 @@ export default function GlCard(props) {
                   })}
                   animateToNumber={parseFloat(formattedBalance())}
                 />
+                <span>{formattedBalance().match(/[kKmMbB]$/)}</span>
               </div>
 
               {/* ----------------------- Show Details Button ------------------------- */}
