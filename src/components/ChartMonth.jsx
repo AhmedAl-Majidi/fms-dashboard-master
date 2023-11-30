@@ -6,23 +6,19 @@ import {
   getDataByEiradName,
   getDataByMasrofName,
   expensesData,
+  revenuesData,
+  subtractArrays,
 } from "../js/calcBalance.js";
 
 const ApexChart = (props) => {
   const data = ApiData.value;
 
-  const subtractArrays = (arr1, arr2) => {
-    if (arr1.length !== arr2.length) {
-      throw new Error("Array lengths must be equal");
-    }
-    return arr1.map((value, index) => value - arr2[index]);
-  };
   const dataAll = [
     {
       id: 1,
       name: getDataByEiradName(data, props.year),
       type: "column",
-      data: getRevenuesData(data, props.year),
+      data: revenuesData.value,
     },
     {
       id: 2,
@@ -37,10 +33,7 @@ const ApexChart = (props) => {
     {
       name: "صافي الربح",
       type: "column",
-      data: subtractArrays(
-        getRevenuesData(data, props.year),
-        expensesData.value
-      ),
+      data: subtractArrays(revenuesData.value, expensesData.value),
     },
   ];
 

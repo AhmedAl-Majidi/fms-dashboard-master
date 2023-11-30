@@ -2,12 +2,17 @@
 import ReactApexChart from "react-apexcharts";
 import { ApiData } from "../data/glData";
 import "../assets/fonts/font.css";
-import { getRevenuesData, sumArrays, expensesData } from "../js/calcBalance.js";
+import {
+  getRevenuesData,
+  sumArrays,
+  expensesData,
+  revenuesData,
+} from "../js/calcBalance.js";
 
 function PieChart(props) {
   const data = ApiData.value;
 
-  const dataE = sumArrays(getRevenuesData(data, props.year));
+  const dataE = sumArrays(revenuesData.value);
   const dataM = sumArrays(expensesData.value);
   const dataSaf = dataE - dataM;
   const series = [dataE, dataM, dataSaf];
