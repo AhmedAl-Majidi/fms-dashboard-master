@@ -1,4 +1,6 @@
 import dayjs from "dayjs";
+import 'dayjs/locale/ar'
+
 
 // Accepts month number and returns month
 export function getMonthName(monthNumber) {
