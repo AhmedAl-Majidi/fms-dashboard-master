@@ -49,19 +49,32 @@ export default function YearPicker() {
     }
   };
 
+  // Calculating min and max year id coming from API
+  const yearIds = ApiData.value.map(item => item.year_id); // [2020,2021,2022,2023,...]
+  const maxYearIdApi = Math.max(...yearIds); // 2020,2021,2022,2023 => max is: 2023
+  const minYearIdApi = Math.min(...yearIds); // 2020,2021,2022,2023 => min is: 2020
+
+
+  // https://mui.com/x/react-date-pickers/validation/
+  const minYearId = dayjs(`${minYearIdApi}-01-01T00:00:00.000`);
+  const maxYearId = dayjs(`${maxYearIdApi}-01-01T00:00:00.000`);
 
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DemoContainer components={["DatePicker"]}>
+        <DemoContainer components={["DatePicker"]} >
           <DatePicker
             label={"السنة"}
             views={["year"]}
             onChange={handleChange}
             sx={{ direction: "ltr" }}
+            minDate={minYearId}
+            maxDate={maxYearId}
           />
         </DemoContainer>
       </LocalizationProvider>
+
+      {/* "invalid year" alert component */}
       {showAlert && (
         <Stack
           spacing={2}
