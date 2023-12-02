@@ -51,7 +51,7 @@ export default function GlCard(props) {
       <React.Fragment>
         <Card sx={{ boxShadow: 5 }}>
           <section
-            className="container row p-3"
+            className="row p-3"
             style={{ fontFamily: "cairo" }}
           >
             {/*------------------------------ balance ------------------------------*/}
@@ -116,7 +116,7 @@ export default function GlCard(props) {
           // Trasnaction
           TransitionComponent={Transition}
           keepMounted
-          // -------
+        // -------
         >
           <DialogTitle
             style={{ cursor: "move", textAlign: "center", fontFamily: "cairo" }}
