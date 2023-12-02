@@ -17,7 +17,6 @@ import { expensesData, revenuesData } from "./js/calcBalance";
 import { Year } from "./components/YearPicker";
 import { sumArrays } from "./js/calcBalance.js";
 import { iconsBgStyle } from "./assets/icons/icons.js";
-import { showGlLayout } from "./components/YearPicker";
 
 export default function GlLayout() {
   return (
@@ -38,7 +37,7 @@ export default function GlLayout() {
             <FontAwesomeIcon
               icon={faMoneyBillAlt}
               style={{ color: "#77DD77", fontSize: "55px" }}
-              // size="3x"
+            // size="3x"
             />
           }
           iconColor={iconsBgStyle.revenues}
@@ -52,7 +51,7 @@ export default function GlLayout() {
             <FontAwesomeIcon
               icon={faReceipt}
               style={{ color: "#FF6961", fontSize: "55px" }}
-              // size="3x"
+            // size="3x"
             />
           }
           iconColor={iconsBgStyle.expenses}
@@ -68,7 +67,7 @@ export default function GlLayout() {
             <FontAwesomeIcon
               icon={faChartLine}
               style={{ color: "#FFD700", fontSize: "55px" }}
-              // size="3x"
+            // size="3x"
             />
           }
           iconColor={iconsBgStyle.profits}
@@ -84,7 +83,7 @@ export default function GlLayout() {
             <FontAwesomeIcon
               icon={faSackDollar}
               style={{ color: "#704700", fontSize: "55px" }}
-              // size="3x"
+            // size="3x"
             />
           }
           iconColor={iconsBgStyle.cashIn}
