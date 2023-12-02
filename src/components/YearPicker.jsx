@@ -5,9 +5,9 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import { signal } from "@preact/signals-react";
-import { getExpensesData, getRevenuesData } from "../js/calcBalance.js";
+import { getExpensesData, getRevenuesData, subtractArrays } from "../js/calcBalance.js";
 import { ApiData } from "../data/glData.js";
-import { expensesData, revenuesData } from "../js/calcBalance.js";
+import { expensesData, revenuesData, profitsData } from "../js/calcBalance.js";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 import Stack from "@mui/material/Stack";
@@ -35,6 +35,7 @@ export default function YearPicker() {
 
       expensesData.value = getExpensesData(data, Year.value);
       revenuesData.value = getRevenuesData(data, Year.value);
+      profitsData.value = subtractArrays(revenuesData.value, expensesData.value)
     } else {
 
       // Show "invlid year" alert

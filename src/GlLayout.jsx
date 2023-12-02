@@ -13,7 +13,7 @@ import { PieChart } from "./components/PieChart";
 import GlCard from "./components/GlCard";
 import "../src/App.css";
 import { subSysId } from "../src/data/subsytems.js";
-import { expensesData, revenuesData } from "./js/calcBalance";
+import { expensesData, profitsData, revenuesData } from "./js/calcBalance";
 import { Year } from "./components/YearPicker";
 import { sumArrays } from "./js/calcBalance.js";
 import { iconsBgStyle } from "./assets/icons/icons.js";
@@ -44,6 +44,7 @@ export default function GlLayout() {
           title={cardsData.revenues.name}
           balance={sumArrays(revenuesData.value)}
           dialogTitle={cardsData.revenues.name}
+          monthBalance={revenuesData.value}
         />
         {/*----------------------------------Expense------------------------------------------*/}
         <GlCard
@@ -76,6 +77,7 @@ export default function GlLayout() {
             sumArrays(revenuesData.value) - sumArrays(expensesData.value)
           }
           dialogTitle={cardsData.profit.name}
+          monthBalance={profitsData.value}
         />
         {/*----------------------------------Cash In------------------------------------------*/}
         <GlCard

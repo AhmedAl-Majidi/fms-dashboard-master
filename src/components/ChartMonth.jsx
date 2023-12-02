@@ -6,7 +6,7 @@ import {
   getDataByMasrofName,
   expensesData,
   revenuesData,
-  subtractArrays,
+  profitsData,
 } from "../js/calcBalance.js";
 
 const ApexChart = (props) => {
@@ -28,11 +28,22 @@ const ApexChart = (props) => {
   ];
 
   const allData = [
-    ...dataAll,
+    {
+      id: 1,
+      name: getDataByEiradName(data, props.year),
+      type: "column",
+      data: revenuesData.value,
+    },
+    {
+      id: 2,
+      name: getDataByMasrofName(data, props.year),
+      type: "column",
+      data: expensesData.value,
+    },
     {
       name: "صافي الربح",
       type: "column",
-      data: subtractArrays(revenuesData.value, expensesData.value),
+      data: profitsData.value,
     },
   ];
 

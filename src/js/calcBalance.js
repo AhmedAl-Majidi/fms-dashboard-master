@@ -49,6 +49,7 @@ const getDataByMasrofName = (propData, id) => {
 
 const expensesData = signal([]);
 const revenuesData = signal([]);
+const profitsData = signal([]);
 
 export {
   getRevenuesData,
@@ -59,4 +60,5 @@ export {
   getDataByMasrofName,
   expensesData,
   revenuesData,
+  profitsData
 };
